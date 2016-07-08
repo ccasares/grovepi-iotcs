@@ -1,0 +1,29 @@
+{
+  "name": "grovepi_iotcs",
+  "version": "1.0.0",
+  "description": "GrovePi + Oracle IoTCS test",
+  "main": "grovepi_iotcs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccasares/grovepi-iotcs.git"
+  },
+  "keywords": [
+    "iot",
+    "oracle",
+    "iotcs",
+    "grovepi",
+    "raspberrypi"
+  ],
+  "author": "Carlos Casares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccasares/grovepi-iotcs/issues"
+  },
+  "homepage": "https://github.com/ccasares/grovepi-iotcs#readme",
+  "dependencies": {
+    "node-grovepi": "^2.0.9"
+  }
+}
