@@ -1,1 +1,0 @@
-/home/pi/projects/iot/csl/js/modules/device-library.node.js
