@@ -109,47 +109,10 @@ async.series( {
       }
     });
   },
-/**
-  websockets: function(callback) {
-    console.log("-----> Initializing WebSocket Server");
-    var wss = new WebSocketServer({
-      server: server,
-      path: wsURI,
-      verifyClient: function (info) {
-        return true;
-      }
-    });
-    wss.on('connection', function(ws) {
-      console.log("WS session connected");
-      wssession = ws;
-      ws.on('close', function() {
-        console.log("WS session disconnected");
-        wssession = undefined;
-      });
-      ws.on('message', function(payload) {
-        var ev = JSON.parse(payload);
-        log('Setting ' + Object.keys(ev)[0] + ' to ' + ev[Object.keys(ev)[0]]);
-        if ( ev.relay !== undefined && relay) {
-          ev.relay ? relay.on() : relay.off();
-        }
-        if ( ev.buzzer !== undefined && buzz) {
-          ev.buzzer ? buzz.on() : buzz.off();
-        }
-        if ( ev.green !== undefined && led) {
-          ev.green ? led.on() : led.off();
-        }
-      });
-    });
-    server.listen(PORT, function() {
-      console.log("WS server running on http://localhost:" + PORT + wsURI);
-      callback(null, true);
-    });
-  },
-**/
   grovepi: function(callback) {
     log.info(GROVEPI, "Initializing GrovePi devices");
     if (board)
-      return;
+      callback(null, true);
     log.verbose(GROVEPI, 'Starting Board setup');
     board = new GrovePi.board({
       debug: true,
