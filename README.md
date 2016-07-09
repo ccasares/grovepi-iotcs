@@ -127,9 +127,11 @@ You will need to purchase an instance of Oracle IoTCS or request a trial account
 #### Create the Device Models
 In IoTCS, a device model is a single entity that represents the interface through which Oracle IoT Cloud Service can interact with a specific device type.
 The first step is to define the device models we're going to use in this sample. Say, the "Light Sensor" device model and the "Ultrasonic Ranger" device model.
+
 1. Login to your IoTCS instance and click the `Devices`tab
 2. Click the `+` button to create a new device model
 3. In my sample I created my device model with the following data:
+
     1. Details:
     ```
     Name: CarlosC-GrovePi-Proximity Sensor Model
