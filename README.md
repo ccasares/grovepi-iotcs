@@ -170,6 +170,7 @@ The first step is to define the device models we're going to use in this sample.
 You must first register each device with Oracle IoT Cloud Service before the device can communicate and send any data to Oracle IoT Cloud Service.
 Actual devices are _virtualized_ in IoTCS infrastructure. We will be using _Directly Connected Device_  in our sample. See IoTCS documentation about device types (https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-0AFFC157-E54C-4CE5-BB98-ED887C3977E7.htm).
 One _virtualized device_ can be associated with one or more _device models_. Nonetheless, we will create one virtualized device per _actual device_.
+
 1. While in the `Devices` tab, click on the `Register` icon on the left, and `Register Single Device` button.
 2. Enter a meaningful `Name`, `Manufacturer`, `Serial Number` and `Model Number` values. Type in also the `Shared Secret` (or _password_) for this device. **Remember this shared secret** as it will be used later.
 
