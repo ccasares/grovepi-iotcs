@@ -25,7 +25,7 @@ I provide details about how to setup everything from scratch, assuming you will 
 2. Download Raspbian for Robots image from [here](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/). This page also contains detailed instructions about how to write the image to your microSD card.
 3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture: __**TODO**__
 4. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
-    1. Download the latest version of nodejs from [here](https://nodejs.org). Make sure you download the **ARMv6** platform.
+    1. Download the latest version of nodejs from [here](https://nodejs.org/en/download/current/). Make sure you download the **ARMv6** platform.
     2. Uninstall the previous nodejs and install (unzip) the new one. Make sure you clean up the `/usr/local/bin` folder to point to your nodejs instance.
 5. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
     ```bash
@@ -179,18 +179,27 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 3. Take note of the **`Device ID`**.
 
 ### Oracle IoTCS setup (Client side)
-#### Download and unzip the libraries
-1. Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be release at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="iotcs-csl-js-bin-16.2.3.1.1-14.zip">here</a>
-2. Copy/upload the downloaded ZIP file to the RPi3.
-3. I created the `projects` folder to work from there
+#### Clone this repo
+Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be released at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="iotcs-csl-js-bin-16.2.3.1.1-14.zip">here</a>. To ease things, we will clone this repo so that you'll get all files you need for this tutorial.
+1. Login to RPi3 and create the `$HOME/projects` folder.
+2. Move into `$HOME/projects` folder and clone this repo
    ```
-mkdir $HOME/projects
-```
-   Login to the RPi3 and unzip the ZIP file into such folder. A `$HOME/projects/iot` folder structure will be created.
+   $ cd $HOME/projects
+   $ git clone https://github.com/ccasares/grovepi-iotcs
+   ```
+3. Unzip the client library ZIP file into the `..` folder and you can now safely remove the `iotcs-csl-js-bin-16.2.3.1.1-14.zip` file
+   ```
+   unzip iotcs-csl-js-bin-16.2.3.1.1-14.zip -d ..
+   ```
 
-4. d
+4. Let's create a soft link to the JS library in our project folder
+   ```
+   ln -s ../iot/csl/js/modules/device-library.node.js .
+   ```
 
-#### Create the trusr-store files
+5. dd
+
+#### Create the trust-store files
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
