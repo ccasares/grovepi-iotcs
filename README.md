@@ -183,10 +183,11 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 1. IoTCS Client libraries are available in the following page: http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html
 2. Copy/upload the downloaded ZIP file to the RPi3.
 3. I created the `projects` folder to work from there
-```
+   ```
 mkdir $HOME/projects
 ```
    Login to the RPi3 and unzip the ZIP file into such folder. A `$HOME/projects/iot` folder structure will be created.
+
 4. d
 
 #### Create the trusr-store files
