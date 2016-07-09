@@ -16,7 +16,7 @@ I provide details about how to setup everything from scratch, assuming you will 
  * I've used nodejs 6.2.0 (https://nodejs.org) for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
 
 ## Let's go for it!
-### Raspberry Pi 3 setup
+### Raspberry Pi 3 & GrovePi+ Kit Setup
 
 1. Get a microSD card (at least 4GB)
 2. Download Raspbian for Robots image from here: http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/. This page also contains detailed instructions about how to write the image to your microSD card.
@@ -116,5 +116,12 @@ pi@raspberrypi3:~/Desktop/GrovePi/Software/Python $ python grove_ultrasonic.py
 3
 ```
 
-    Cool, isn't it? :grimacing:. Let's move on.
-8. Sensors are working like a charm. Now, let's send the data to Oracle IoTCS.
+    Cool, isn't it? :grimacing:. Sensors are working like a charm. Now, let's move on and send the data to Oracle IoTCS.
+
+### Oracle IoTCS setup (Server side)
+#### Get your Instance
+#### Create the Device Models
+#### Register virtual devices
+#### Create and setup your application
+### Oracle IoTCS setup (Client side)
+#### Download and unzip the libraries
