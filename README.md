@@ -180,10 +180,15 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 
 ### Oracle IoTCS setup (Client side)
 #### Download and unzip the libraries
-1. Login to the
-1. Go to http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html and download the binaries of the JavaScript Client Software Library.
+1. IoTCS Client libraries are available in the following page: http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html
 2. Copy/upload the downloaded ZIP file to the RPi3.
-3. Login to the RPi3 and unzip the ZIP file.
+3. I created the `projects` folder to work from there
+```
+mkdir $HOME/projects
+```
+   Login to the RPi3 and unzip the ZIP file into such folder. A `$HOME/projects/iot` folder structure will be created.
+4. d
+
 #### Create the trusr-store files
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
