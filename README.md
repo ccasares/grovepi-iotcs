@@ -131,8 +131,6 @@ The first step is to define the device models we're going to use in this sample.
 1. Login to your IoTCS instance and click the `Devices`tab
 2. Click the `+` button to create a new device model
 3. In my sample I created my device model with the following data:
-4. test
-
     1. Details:
         ```
     Name: CarlosC-GrovePi-Proximity Sensor Model
