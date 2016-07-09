@@ -15,6 +15,8 @@ I provide details about how to setup everything from scratch, assuming you will 
 * Although both IoTCS and GrovePi+ support many different programming languages (Java, Python, C#...) I'm a JavaScript/nodejs fan. And that's what you'll find in here :grin:.
  * I've used nodejs 6.2.0 (https://nodejs.org) for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
 * Oracle Internet Of Things Cloud Service release 16.2.3 (https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
+* Oracle Process Cloud Service release 16.1.3 (https://cloud.oracle.com/process) or higher.
+* Oracle Integration Cloud Service release 16.2.3 (https://cloud.oracle.com/integration) or higher.
 
 ## Let's go for it!
 ### Raspberry Pi 3 & GrovePi+ Kit Setup
@@ -119,10 +121,53 @@ pi@raspberrypi3:~/Desktop/GrovePi/Software/Python $ python grove_ultrasonic.py
 
     Cool, isn't it? :grimacing:. Sensors are working like a charm. Now, let's move on and send the data to Oracle IoTCS.
 
-### Oracle IoTCS setup (Server side)
+### Oracle IoTCS setup (Server side) (1)
 #### Get your Instance
+You will need to purchase an instance of Oracle IoTCS or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/iot to get more info.
 #### Create the Device Models
+In IoTCS, a device model is a single entity that represents the interface through which Oracle IoT Cloud Service can interact with a specific device type.
+The first step is to define the device models we're going to use in this sample. Say, the "Light Sensor" device model and the "Ultrasonic Ranger" device model.
+1. Login to your IoTCS instance and click the `Devices`tab
+2. Click the `+` button to create a new device model
+3. In my sample I created my device model with the following data:
+    1. Details:
+    ```
+    Name: CarlosC-GrovePi-Proximity Sensor Model
+    Description: Proximity Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
+    URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity
+    ```
+
+    The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs here: https://en.wikipedia.org/wiki/Uniform_Resource_Name
+
+    2. Attributes:
+
+    Click the `+` button to create a new attribute with the following details:
+
+    ```
+    Name: distance
+    Description: Distance in centimeters
+    Type: Integer
+    Range: From 0 to 9999
+    ```
 #### Register virtual devices
-#### Create and setup your application
 ### Oracle IoTCS setup (Client side)
 #### Download and unzip the libraries
+#### Create the trusr-store files
+### Build your client sample
+### Oracle IoTCS setup (Server side) (2)
+#### Create and setup your application
+##### Create your application
+##### Register your device models
+##### Create your explorations
+### Build your Process in Oracle Process Cloud Service
+#### Get your Instance
+You will need to purchase an instance of Oracle Process Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/process to get more info.
+#### Create your process application
+### Create your integration in Oracle Integration Cloud Service
+#### Get your Instance
+You will need to purchase an instance of Oracle Integration Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/integration to get more info.
+#### Create your integration
+### Oracle IoTCS setup (Server side) (3)
+#### Create and setup your application (2)
+##### Create the enterprise application integration
+### Run the sample end2end!
