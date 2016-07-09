@@ -14,6 +14,7 @@ I provide details about how to setup everything from scratch, assuming you will 
 * For the demo, I've used the Light Sensor (http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor) and Ultrasonic Ranger (http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger). GrovePi+ Kit comes with many other ones, and even more sensors are available and could be used for your own purposes. Just plug them in to the GrovePi board and use the right libraries to access them!
 * Although both IoTCS and GrovePi+ support many different programming languages (Java, Python, C#...) I'm a JavaScript/nodejs fan. And that's what you'll find in here :grin:.
  * I've used nodejs 6.2.0 (https://nodejs.org) for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
+* Oracle Internet Of Things Cloud Service release 16.2.3 (https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
 
 ## Let's go for it!
 ### Raspberry Pi 3 & GrovePi+ Kit Setup
@@ -26,7 +27,7 @@ I provide details about how to setup everything from scratch, assuming you will 
     pi@raspberrypi3:~/Desktop/GrovePi $ ls -l
     total 136
     drwxr-xr-x  3 pi pi   4096 Jun  1 11:39 Firmware
-    -rw-r--r--  1 pi pi 100572 Jun  1 11:39     GrovePi_Plus_By_Dexter_Industries_For_the_Raspberry_Pi.JPG
+    -rw-r--r--  1 pi pi 100572 Jun  1 11:39 GrovePi_Plus_By_Dexter_Industries_For_the_Raspberry_Pi.JPG
     drwxr-xr-x  2 pi pi   4096 Jun  1 11:39 Hardware
     -rwxr-xr-x  1 pi pi   1201 Jun  1 11:39 LICENSE
     drwxr-xr-x 21 pi pi   4096 Jun  1 11:39 Projects
