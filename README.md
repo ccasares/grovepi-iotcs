@@ -180,7 +180,7 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 
 ### Oracle IoTCS setup (Client side)
 #### Download and unzip the libraries
-1. Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be release at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="Dockerfile">here</a>
+1. Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be release at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="iotcs-csl-js-bin-16.2.3.1.1-14.zip">here</a>
 2. Copy/upload the downloaded ZIP file to the RPi3.
 3. I created the `projects` folder to work from there
    ```
