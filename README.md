@@ -188,6 +188,7 @@ Official and supported IoTCS Client libraries are available in this [page](http:
    $ cd $HOME/projects
    $ git clone https://github.com/ccasares/grovepi-iotcs
    ```
+
 3. Unzip the client library ZIP file into the `..` folder and you can now safely remove the `iotcs-csl-js-bin-16.2.3.1.1-14.zip` file
    ```
    unzip iotcs-csl-js-bin-16.2.3.1.1-14.zip -d ..
