@@ -1,31 +1,31 @@
 # grovepi-iotcs
 Simple test of GrovePi Kit sending data to Oracle IoTCS
 ## Purpose
-This is a simple node.js project that shows how to send data from devices connected through a GrovePi+ Kit for Raspberry Pi (http://www.seeedstudio.com/item_detail.html?p_id=2572), to Oracle Internet Of Things Cloud Service (https://cloud.oracle.com/iot). I'm obviously leveraging IoTCS's JavaScript Device Client Libraries.
+This is a simple node.js project that shows how to send data from devices connected through a GrovePi+ Kit for [Raspberry Pi](http://www.seeedstudio.com/item_detail.html?p_id=2572), to [Oracle Internet Of Things Cloud Service](https://cloud.oracle.com/iot). I'm obviously leveraging IoTCS's JavaScript Device Client Libraries.
 ## Disclamer
 Follow my instructions at your own risk. Although everything related to the RPi, GrovePi+ board and devices is extremely simple and nothing should go wrong, be sure to read any additional information from the original manufacturers of Raspberry and GrovePi+ if you're not sure what you're doing.
 ## My environment
 I provide details about how to setup everything from scratch, assuming you will be using a similar environment:
 
-* Raspberry Pi 3 (https://www.raspberrypi.org). Earlier models should work, but I'm omitting any setup related to WiFi or Bluetooth dongles, as the RPi3 has built-in support for those.
-* GrovePi+ Kit (http://www.seeedstudio.com/wiki/GrovePi%2B, http://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/)
-* Raspbian For Robots image installed in your SD card (http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/)
+* [Raspberry Pi 3](https://www.raspberrypi.org). Earlier models should work, but I'm omitting any setup related to WiFi or Bluetooth dongles, as the RPi3 has built-in support for those.
+* [GrovePi+ Kit](http://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/)
+* [Raspbian For Robots image](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/) installed in your SD card
  * There are instructions available about how to enable your own Raspbian image for GrovePi. Unfortunately, even after following those instructions, it didn't work for me. So I decided to use this pre-configured image from Dexter Industries which worked like a charm.
-* For the demo, I've used the Light Sensor (http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor) and Ultrasonic Ranger (http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger). GrovePi+ Kit comes with many other ones, and even more sensors are available and could be used for your own purposes. Just plug them in to the GrovePi board and use the right libraries to access them!
+* For the demo, I've used the [Light Sensor](http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor) and [Ultrasonic Ranger](http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger). GrovePi+ Kit comes with many other ones, and even more sensors are available and could be used for your own purposes. Just plug them in to the GrovePi board and use the right libraries to access them!
 * Although both IoTCS and GrovePi+ support many different programming languages (Java, Python, C#...) I'm a JavaScript/nodejs fan. And that's what you'll find in here :grin:.
- * I've used nodejs 6.2.0 (https://nodejs.org) for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
-* Oracle Internet Of Things Cloud Service release 16.2.3 (https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
-* Oracle Process Cloud Service release 16.1.3 (https://cloud.oracle.com/process) or higher.
-* Oracle Integration Cloud Service release 16.2.3 (https://cloud.oracle.com/integration) or higher.
+ * I've used [nodejs](https://nodejs.org) 6.2.0 for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
+* [Oracle Internet Of Things Cloud Service release 16.2.3](https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
+* [Oracle Process Cloud Service](https://cloud.oracle.com/process) release 16.1.3 or higher.
+* [Oracle Integration Cloud Service](https://cloud.oracle.com/integration) release 16.2.3 or higher.
 
 ## Let's go for it!
 ### Raspberry Pi 3 & GrovePi+ Kit Setup
 
 1. Get a microSD card (at least 4GB)
-2. Download Raspbian for Robots image from here: http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/. This page also contains detailed instructions about how to write the image to your microSD card.
+2. Download Raspbian for Robots image from [here](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/). This page also contains detailed instructions about how to write the image to your microSD card.
 3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture: __**TODO**__
 4. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
-    1. Download the latest version of nodejs from https://nodejs.org. Make sure you download the **ARMv6** platform.
+    1. Download the latest version of nodejs from [here](https://nodejs.org). Make sure you download the **ARMv6** platform.
     2. Uninstall the previous nodejs and install (unzip) the new one. Make sure you clean up the `/usr/local/bin` folder to point to your nodejs instance.
 5. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
     ```bash
@@ -141,7 +141,7 @@ The first step is to define the device models we're going to use in this sample.
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity
     ```
 
-        The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs here: https://en.wikipedia.org/wiki/Uniform_Resource_Name
+        The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs [here](https://en.wikipedia.org/wiki/Uniform_Resource_Name)
 
     2. Attributes:
 
@@ -171,7 +171,7 @@ The first step is to define the device models we're going to use in this sample.
 
 #### Register virtual devices
 You must first register each device with Oracle IoT Cloud Service before the device can communicate and send any data to Oracle IoT Cloud Service.
-Actual devices are _virtualized_ in IoTCS infrastructure. We will be using _Directly Connected Device_  in our sample. See IoTCS documentation about device types (https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-0AFFC157-E54C-4CE5-BB98-ED887C3977E7.htm).
+Actual devices are _virtualized_ in IoTCS infrastructure. We will be using _Directly Connected Device_  in our sample. See IoTCS [documentation](https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-0AFFC157-E54C-4CE5-BB98-ED887C3977E7.htm) about device types.
 One _virtualized device_ can be associated with one or more _device models_. Nonetheless, we will create one virtualized device per _actual device_.
 
 1. While in the `Devices` tab, click on the `Register` icon on the left, and `Register Single Device` button.
@@ -180,7 +180,7 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 
 ### Oracle IoTCS setup (Client side)
 #### Download and unzip the libraries
-1. IoTCS Client libraries are available in the following page: http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html
+1. Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be release at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="Dockerfile">here</a>
 2. Copy/upload the downloaded ZIP file to the RPi3.
 3. I created the `projects` folder to work from there
    ```
