@@ -48,7 +48,6 @@ drwxr-xr-x  4 pi pi 4096 Jun  1 11:39 Scratch
 drwxr-xr-x  4 pi pi 4096 Jun  1 11:39 Shell
 ```
 as noted above, I've used NodeJS stuff. However, it's a good idea to use the Python individual samples to test each sensor. More on this next.
-
 5. Now, let's test our Light Sensor and Ultrasonic Ranger devices before going further with my sample. Make sure you take the right sensors :wink::
 
 ![Ultrasonic Ranger](http://www.seeedstudio.com/wiki/images/3/3a/Ultrasonic_Ranger.jpg)
@@ -60,7 +59,7 @@ as noted above, I've used NodeJS stuff. However, it's a good idea to use the Pyt
 
 The Light Sensor produces analog signals, so you must plug it in in any of the Analog Ports (A0, A1 or A2). The Ultrasonic Ranger sensor produces digital signals, so plug it in, in any of the Digital Ports (D2, D3, D4, D5, D6, D7 or D8). Just **take note of the port used**.
 
-In my case, I've plug them in using the **A2** and **D4** ports.
+In my case, I've plugged them in using the **A2** and **D4** ports.
 
 7. Once plugged in, go to the Python samples directory
 
