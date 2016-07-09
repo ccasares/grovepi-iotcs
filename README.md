@@ -58,9 +58,9 @@ as noted above, I've used NodeJS stuff. However, it's a good idea to use the Pyt
 
     ![GrovePi+ Board Port Diagram](http://www.dexterindustries.com/wp-content/uploads/2014/07/desc1.jpg)
 
-The Light Sensor produces analog signals, so you must plug it in in any of the Analog Ports (A0, A1 or A2). The Ultrasonic Ranger sensor produces digital signals, so plug it in, in any of the Digital Ports (D2, D3, D4, D5, D6, D7 or D8). Just **take note of the port used**.
+    The Light Sensor produces analog signals, so you must plug it in in any of the Analog Ports (A0, A1 or A2). The Ultrasonic Ranger sensor produces digital signals, so plug it in, in any of the Digital Ports (D2, D3, D4, D5, D6, D7 or D8). Just **take note of the port used**.
 
-In my case, I've plugged them in using the **A2** and **D4** ports.
+    In my case, I've plugged them in using the **A2** and **D4** ports.
 
 7. Once plugged in, go to the Python samples directory
 
@@ -71,7 +71,7 @@ In my case, I've plugged them in using the **A2** and **D4** ports.
     -rw-r--r-- 1 pi pi 1941 Jun  1 11:39 grove_ultrasonic.py
     ```
 Edit both files and make sure you set the port number you're using in your case.
-For the `grove_light_sensor.py` file:
+    For the `grove_light_sensor.py` file:
 
     ```python
     ...
@@ -82,7 +82,7 @@ For the `grove_light_sensor.py` file:
     ```
 Change the `0` to your port (if necessary).
 
-For the `grove_ultrasonic.py` file:
+    For the `grove_ultrasonic.py` file:
 
     ```python
     ...
@@ -93,9 +93,9 @@ For the `grove_ultrasonic.py` file:
     ```
 Change the `2` to your port (if necessary).
 
-Now, start the `grove_light_sensor.py` test sample and check the results. Cover the sensor with your finger or palm and see what happens:
+    Now, start the `grove_light_sensor.py` test sample and check the results. Cover the sensor with your finger or palm and see what happens:
 
-```bash
+    ```bash
 pi@raspberrypi3:~/Desktop/GrovePi/Software/Python $ python grove_light_sensor.py
 sensor_value = 759 resistance =3.48
 sensor_value = 757 resistance =3.51
@@ -104,9 +104,9 @@ sensor_value = 376 resistance =17.21
 sensor_value = 381 resistance =16.85
 sensor_value = 16 resistance =629.38
 ```
-Do the same with the `grove_ultrasonic.py` test sample. Move your palm over the sensor to see how it measures the distance in centimeters:
+    Do the same with the `grove_ultrasonic.py` test sample. Move your palm over the sensor to see how it measures the distance in centimeters:
 
-```bash
+    ```bash
 pi@raspberrypi3:~/Desktop/GrovePi/Software/Python $ python grove_ultrasonic.py
 61
 61
@@ -116,5 +116,5 @@ pi@raspberrypi3:~/Desktop/GrovePi/Software/Python $ python grove_ultrasonic.py
 3
 ```
 
-Cool, isn't it? :grimacing:. Let's move on.
+    Cool, isn't it? :grimacing:. Let's move on.
 8. Sensors are working like a charm. Now, let's send the data to Oracle IoTCS.
