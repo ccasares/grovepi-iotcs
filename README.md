@@ -145,7 +145,7 @@ The first step is to define the device models we're going to use in this sample.
 
         Click the `+` button to create a new attribute with the following details:
 
-    ```
+       ```
     Name: distance
     Description: Distance in centimeters
     Type: Integer
