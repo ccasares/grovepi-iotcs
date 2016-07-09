@@ -27,7 +27,6 @@ I provide details about how to setup everything from scratch, assuming you will 
 4. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
     1. Download the latest version of nodejs from https://nodejs.org. Make sure you download the **ARMv6** platform.
     2. Uninstall the previous nodejs and install (unzip) the new one. Make sure you clean up the `/usr/local/bin` folder to point to your nodejs instance.
-
 5. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
     ```bash
     pi@raspberrypi3:~/Desktop/GrovePi $ ls -l
