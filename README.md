@@ -133,17 +133,17 @@ The first step is to define the device models we're going to use in this sample.
 3. In my sample I created my device model with the following data:
 
     1. Details:
-    ```
+        ```
     Name: CarlosC-GrovePi-Proximity Sensor Model
     Description: Proximity Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity
     ```
 
-    The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs here: https://en.wikipedia.org/wiki/Uniform_Resource_Name
+        The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs here: https://en.wikipedia.org/wiki/Uniform_Resource_Name
 
     2. Attributes:
 
-    Click the `+` button to create a new attribute with the following details:
+        Click the `+` button to create a new attribute with the following details:
 
     ```
     Name: distance
