@@ -22,7 +22,7 @@ I provide details about how to setup everything from scratch, assuming you will 
 2. Download Raspbian for Robots image from here: http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/. This page also contains detailed instructions about how to write the image to your microSD card.
 3. Plug your GrovePi+ board in your RPi3. Make sure  
 4. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
-```
+```bash
 pi@raspberrypi3:~/Desktop/GrovePi $ ls -l
 total 136
 drwxr-xr-x  3 pi pi   4096 Jun  1 11:39 Firmware
@@ -35,7 +35,7 @@ drwxr-xr-x  5 pi pi   4096 Jun  1 13:24 Script
 drwxr-xr-x  9 pi pi   4096 Jun  1 11:39 Software
 drwxr-xr-x  2 pi pi   4096 Jun  2 01:29 Troubleshooting
 ```
-```
+```bash
 pi@raspberrypi3:~/GrovePi/Software $ ls -l
 total 32
 drwxr-xr-x  2 pi pi 4096 Jun  1 11:39 C
