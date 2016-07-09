@@ -48,6 +48,7 @@ drwxr-xr-x  4 pi pi 4096 Jun  1 11:39 Scratch
 drwxr-xr-x  4 pi pi 4096 Jun  1 11:39 Shell
 ```
 as noted above, I've used NodeJS stuff. However, it's a good idea to use the Python individual samples to test each sensor. More on this next.
+
 5. Now, let's test our Light Sensor and Ultrasonic Ranger devices before going further with my sample. Make sure you take the right sensors :wink::
 
 ![Ultrasonic Ranger](http://www.seeedstudio.com/wiki/images/3/3a/Ultrasonic_Ranger.jpg)
