@@ -290,7 +290,7 @@ proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity')
 light.setStoreFile(process.argv[3], storePassword);
 light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
 ```
-> Settign the device URN and trust-store password is key as that's the way for IoTCS to uniquely identify the virtual device
+> Setting the device URN and trust-store password is key as that's the way for IoTCS to uniquely identify the virtual device
 
 ```javascript
 async.series( {
@@ -329,11 +329,38 @@ async.series( [
 [...]
 ```
 > I follow the next steps when initializing a device:
+>
 > 1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
-> 2. If the device is not yet activated, I request its activation
-> 3. With the activated device, I create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
+> 2. Check whether the device is already activated. If not, I request its activation
+> 3. With the activated device, get its model definition and create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
 
+```javascript
+grovepi: function(callback) {
+[...]
+  board = new GrovePi.board({
+[...]
+```
+> Create a new instance of the GrovePi `board`
 
+```javascript
+var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
+var lightSensor = new GrovePi.sensors.LightAnalog(2);
+```
+> Create the instances of each device. Please, note the port numbers used (either analog or digital). These must correspond to those used in the actual board
+
+```javascript
+ultrasonicSensor.on('change', function(res) {
+  if (typeof res === 'number') {
+    proximity.getIotVd().update({ distance: res});
+  } else {
+    log.warn(GROVEPI, "Proximity Sensor: Invalid value read: " + res);
+  }
+})
+ultrasonicSensor.watch();
+```
+> Every time the sensor produces data, the `change` event is emitted and `on('change')` callback is called. In such callback, I first check the incoming value (sometimes garbage is received and I must ensure that a valid value is sent to IoTCS) and then _publish_ the data to the right IoTCS virtual device. The JSON structure sent corresponds to the attributes expected for such device model. The IoTCS Client libraries makes this very easy and straightforward to do!
+> The device is not watched until we invoke the `device.watch()` method.
+> Code for the _Light Sensor_ is similar to this one.
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
