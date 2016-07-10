@@ -192,7 +192,9 @@ The first step is to define the device models we're going to use in this sample.
     Description: Light Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:light
     ```
+
     2. Attributes:
+    
         ```
     Name: intensity
     Description: Intensity
