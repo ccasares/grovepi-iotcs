@@ -282,10 +282,9 @@ I decided to perform the above operations synchronously, that is, initialize IoT
 var proximity = new Device('Proximity Sensor');
 var light = new Device('Light Sensor');
 ```
-| Code        | Comments           |
-| ------------- |:-------------|
-| var proximity = new Device('Proximity Sensor');| right-aligned |
-| var light = new Device('Light Sensor');| centered      |
+> I instantiate one `Device` class per device. All IoTCS setting and classes used for the device will be stored and used from this `Device` class
+
+
 
 
 ### Oracle IoTCS setup (Server side) (2)
