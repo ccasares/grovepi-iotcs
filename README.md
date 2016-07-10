@@ -329,9 +329,9 @@ async.series( [
 [...]
 ```
 > I follow the next steps when initializing a device:
-1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
-2. If the device is not yet activated, I request its activation
-3. With the activated device, I create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
+> 1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
+> 2. If the device is not yet activated, I request its activation
+> 3. With the activated device, I create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
 
 
 
