@@ -12,8 +12,8 @@ I provide details about how to setup everything from scratch, assuming you will 
 * [Raspbian For Robots image](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/) installed in your SD card
  * There are instructions available about how to enable your own Raspbian image for GrovePi. Unfortunately, even after following those instructions, it didn't work for me. So I decided to use this pre-configured image from Dexter Industries which worked like a charm.
 * For the demo, I've used the [Light Sensor](http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor) and [Ultrasonic Ranger](http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger). GrovePi+ Kit comes with many other ones, and even more sensors are available and could be used for your own purposes. Just plug them in to the GrovePi board and use the right libraries to access them!
-* Although both IoTCS and GrovePi+ support many different programming languages (Java, Python, C#...) I'm a JavaScript/nodejs fan. And that's what you'll find in here :grin:.
- * I've used [nodejs](https://nodejs.org) 6.2.0 for development and testing. But I'm pretty sure this should work with earlier and newer versions of nodejs. Just give it a try yourself.
+* Although both IoTCS and GrovePi+ support many different programming languages (Java, Python, C#...) I'm a JavaScript/NodeJS fan. And that's what you'll find in here :grin:.
+ * I've used [nodejs](https://nodejs.org) 6.2.0 for development and testing. But I'm pretty sure this should work with earlier and newer versions of NodeJS. Just give it a try yourself.
 * [Oracle Internet Of Things Cloud Service release 16.2.3](https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
 * [Oracle Process Cloud Service](https://cloud.oracle.com/process) release 16.1.3 or higher.
 * [Oracle Integration Cloud Service](https://cloud.oracle.com/integration) release 16.2.3 or higher.
@@ -230,7 +230,22 @@ This version of the IoTCS JS libraries work with _Trusted assets_ which are defi
 We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([See here](#register-virtual-devices)). How?, easy, just follow these steps:
 
 1. Go to the `$HOME/iot/csl/js/bin` folder
-2.
+2. Run the `provisioner.sh` script with:
+   ```bash
+   $ bash provisioner.sh
+   ```
+   **Do not** attempt to run it with `sh` or by making it executable with `chmod +x provisioner.sh`. Running the script with `sh` shell will fail, as it relies to the `{OSTYPE}` environment variable, which doesn't seem to be available within `sh` shell in this Raspbian image.
+3. Type in the input parameters as follows:
+   ```
+   Enter Cloud Service URI: https://<your IoTCS instance hostname> (no need to include any context root, just the hostname using the HTTPS protocol)
+   Enter the ID: <the virtual device ID obtained when registered earlier. I.e: AAAAAAQXFMEA-XX>
+   Enter the shared secret: <the shared secret used when registering the virtual device>
+   Enter the passphrase: <a passphrase that will encrypt the generated file. If you use my code 'as-is', enter welcome1 here>
+   ```
+   Repeat the above procedure for both virtual devices created.
+
+ 4. This will have generated two JSON files. Do remember which file/ID is for which device. Move them to the `$HOME/projects/grovepi-iotcs` folder.
+
 
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
