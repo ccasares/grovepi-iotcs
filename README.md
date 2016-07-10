@@ -25,29 +25,29 @@ I provide details about how to setup everything from scratch, assuming you will 
 1. Get a microSD card (at least 4GB)
 2. Download Raspbian for Robots image from [here](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/). This page also contains detailed instructions about how to write the image to your microSD card.
 3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture: __**TODO**__
-4. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
+4. Start your RPi3 and log in. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
     1. Download the latest version of NodeJS from [here](https://nodejs.org/en/download/current/). Make sure you download the **ARMv6** platform.
     2. Uninstall the previous NodeJS and install (unzip) the new one. I installed it in `$HOME/nodejs` folder.
-    3. Remove any existing `node` `npm` existing soft links in `/usr/local/bin` folder.
+    3. Remove any existing `node` and `npm` existing soft links in `/usr/local/bin` folder.
     4. Create soft links for both `node` and `npm` in `/usr/local/bin` folder, pointing to your NodeJS installation.
-    ```
+    ```bash
     $ cd /usr/local/bin
     $ sudo ln -s $HOME/nodejs/bin/node .
     $ sudo ln -s $HOME/nodejs/bin/npm .
     ```
     5. Install `node-forge` package, globally
-    ```
+    ```bash
     $ sudo npm install -g node-forge
     ```
     6. Update your environment to include `NODE_PATH=$HOME/nodejs/lib/node_modules` environment variable
-    ```
+    ```bash
     $ cd $HOME
     $ vi .profile
     (add export NODE_PATH=$HOME/nodejs/lib/node_modules line at the end)
     $ . ./.profile
     ```
 
-5. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
+5. The Raspian for Robots image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
     ```bash
     pi@raspberrypi3:~/Desktop/GrovePi $ ls -l
     total 136
@@ -204,18 +204,19 @@ Official and supported IoTCS Client libraries are available in this [page](http:
 
 1. Login to RPi3 and create the `$HOME/projects` folder.
 2. Move into `$HOME/projects` folder and clone this repo
-   ```
+   
+   ```bash
    $ cd $HOME/projects
    $ git clone https://github.com/ccasares/grovepi-iotcs
    ```
 
 3. Unzip the client library ZIP file into the `..` folder and you can then safely remove the `iotcs-csl-js-bin-16.2.3.1.1-14.zip` file
-   ```
+   ```bash
    unzip iotcs-csl-js-bin-16.2.3.1.1-14.zip -d ..
    ```
 
 4. Finally let's create a soft link to the JS library in our project folder
-   ```
+   ```bash
    ln -s ../iot/csl/js/modules/device-library.node.js .
    ```
    This is not strictly necessary, but to avoid to write the whole path to the JS library in my code :wink:
