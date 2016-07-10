@@ -17,6 +17,7 @@ I provide details about how to setup everything from scratch, assuming you will 
 * [Oracle Internet Of Things Cloud Service release 16.2.3](https://cloud.oracle.com/iot). The instructions you'll find here about IoTCS are for releases 16.1.3 or higher. Same for the Client libraries.
 * [Oracle Process Cloud Service](https://cloud.oracle.com/process) release 16.1.3 or higher.
 * [Oracle Integration Cloud Service](https://cloud.oracle.com/integration) release 16.2.3 or higher.
+* Last, but certainly not least, make sure your RPi3 is connected to an Internet-enabled WiFi :smirk:
 
 ## Let's go for it!
 ### Raspberry Pi 3 & GrovePi+ Kit Setup
@@ -25,8 +26,27 @@ I provide details about how to setup everything from scratch, assuming you will 
 2. Download Raspbian for Robots image from [here](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/). This page also contains detailed instructions about how to write the image to your microSD card.
 3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture: __**TODO**__
 4. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
-    1. Download the latest version of nodejs from [here](https://nodejs.org/en/download/current/). Make sure you download the **ARMv6** platform.
-    2. Uninstall the previous nodejs and install (unzip) the new one. Make sure you clean up the `/usr/local/bin` folder to point to your nodejs instance.
+    1. Download the latest version of NodeJS from [here](https://nodejs.org/en/download/current/). Make sure you download the **ARMv6** platform.
+    2. Uninstall the previous NodeJS and install (unzip) the new one. I installed it in `$HOME/nodejs` folder.
+    3. Remove any existing `node` `npm` existing soft links in `/usr/local/bin` folder.
+    4. Create soft links for both `node` and `npm` in `/usr/local/bin` folder, pointing to your NodeJS installation.
+    ```
+    $ cd /usr/local/bin
+    $ sudo ln -s $HOME/nodejs/bin/node .
+    $ sudo ln -s $HOME/nodejs/bin/npm .
+    ```
+    5. Install `node-forge` package, globally
+    ```
+    $ sudo npm install -g node-forge
+    ```
+    6. Update your environment to include `NODE_PATH=$HOME/nodejs/lib/node_modules` environment variable
+    ```
+    $ cd $HOME
+    $ vi .profile
+    (add export NODE_PATH=$HOME/nodejs/lib/node_modules line at the end)
+    $ . ./.profile
+    ```
+
 5. Start your RPi3 and log in. The image includes libraries and samples for many GrovePi sensors and programming languages. You can find those in your Desktop folder
     ```bash
     pi@raspberrypi3:~/Desktop/GrovePi $ ls -l
@@ -203,7 +223,10 @@ Official and supported IoTCS Client libraries are available in this [page](http:
 #### Create the trust-store files
 This version of the IoTCS JS libraries work with _Trusted assets_ which are defined as material that contribute to the chain of trust between the client and the server. The client library relies on an implementation of the TrustedAssetsManager to securely manage these assets on the client. The client-library has a default implementation of the TrustedAssetsManager which uses a framework native trust-store to secure the trust assets.
 
-We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([See here](#register-virtual-devices))
+We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([See here](#register-virtual-devices)). How?, easy, just follow these steps:
+
+1. Go to the `$HOME/iot/csl/js/bin` folder
+2.
 
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
