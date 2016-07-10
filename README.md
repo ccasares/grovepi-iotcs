@@ -284,8 +284,28 @@ var light = new Device('Light Sensor');
 ```
 > I instantiate one `Device` class per device. All IoTCS setting and classes used for the device will be stored and used from this `Device` class
 
+```javascript
+proximity.setStoreFile(process.argv[2], storePassword);
+proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity');
+light.setStoreFile(process.argv[3], storePassword);
+light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
+```
+> Settign the device URN and trust-store password is key as that's they way for IoTCS to uniquely identify the virtual device
 
+```javascript
+async.series( {
+  iot: function(callback) {
+```
+> First `async` used. I will first initialize IoTCS and then the GrovePi board
 
+```javascript
+async.eachSeries( devices, function(d, cb) {
+```
+> I iterate over the `devices` array, initializing each device contained on it. This way, I could easily add new devices with very few new code
+
+```javascript
+```
+ 
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
