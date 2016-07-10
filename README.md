@@ -194,7 +194,7 @@ The first step is to define the device models we're going to use in this sample.
     ```
 
     2. Attributes:
-    
+
         ```
     Name: intensity
     Description: Intensity
@@ -281,91 +281,91 @@ My code consists in two files:
 
 I decided to perform the above operations synchronously, that is, initialize IoTCS communication _before_ setting up GrovePi. And watch the devices _after_ the initialization procedures end. Some operations might have been performed concurrently, but anyhow I wanted to do everything in serial. Thus, I've heavily used the `async` NodeJS package (more [here](http://caolan.github.io/async)) because NodeJS is fully asynchronous. These are the key parts of my code:
 
-```javascript
-var proximity = new Device('Proximity Sensor');
-var light = new Device('Light Sensor');
-```
-> I instantiate one `Device` class per device. All IoTCS setting and classes used for the device will be stored and used from this `Device` class
+  ```javascript
+  var proximity = new Device('Proximity Sensor');
+  var light = new Device('Light Sensor');
+  ```
+  > I instantiate one `Device` class per device. All IoTCS setting and classes used for the device will be stored and used from this `Device` class
 
-```javascript
-proximity.setStoreFile(process.argv[2], storePassword);
-proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity');
-light.setStoreFile(process.argv[3], storePassword);
-light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
-```
-> Setting the device URN and trust-store password is key as that's the way for IoTCS to uniquely identify the virtual device
+  ```javascript
+  proximity.setStoreFile(process.argv[2], storePassword);
+  proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity');
+  light.setStoreFile(process.argv[3], storePassword);
+  light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
+  ```
+  > Setting the device URN and trust-store password is key as that's the way for IoTCS to uniquely identify the virtual device
 
-```javascript
-async.series( {
-  iot: function(callback) {
-```
-> First `async` used. I will first initialize IoTCS and then the GrovePi board
+  ```javascript
+  async.series( {
+    iot: function(callback) {
+  ```
+  > First `async` used. I will first initialize IoTCS and then the GrovePi board
 
-```javascript
-async.eachSeries( devices, function(d, cb) {
-```
-> I iterate over the `devices` array, initializing each device contained on it. This way, I could easily add new devices with very few new code
+  ```javascript
+  async.eachSeries( devices, function(d, cb) {
+  ```
+  > I iterate over the `devices` array, initializing each device contained on it. This way, I could easily add new devices with very few new code
 
-```javascript
-async.series( [
-  function(cb1) {
-[...]
-    d.setIotDcd(new dcl.device.DirectlyConnectedDevice(d.getIotStoreFile(), d.getIotStorePassword()));
-[...]
-  },
-  function(cb2) {
-    if (!d.getIotDcd().isActivated()) {
-[...]
-      d.getIotDcd().activate([d.getUrn()], function (device, error) {
-[...]
-        d.setIotDcd(device);
-      });
-[...]
-  },
-  function(cb3) {
-[...]
-    getModel(d.getIotDcd(), d.getUrn(), (function (error, model) {
-[...]
-        d.setIotModel(model);
-        d.setIotVd(d.getIotDcd().createVirtualDevice(d.getIotDcd().getEndpointId(), model));
-        log.verbose(IOTCS, "'" + d.getName() + "' intialized successfully");
-[...]
-```
-> I follow the next steps when initializing a device:
->
-> 1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
-> 2. Check whether the device is already activated. If not, I request its activation
-> 3. With the activated device, get its model definition and create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
+  ```javascript
+  async.series( [
+    function(cb1) {
+  [...]
+      d.setIotDcd(new dcl.device.DirectlyConnectedDevice(d.getIotStoreFile(), d.getIotStorePassword()));
+  [...]
+    },
+    function(cb2) {
+      if (!d.getIotDcd().isActivated()) {
+  [...]
+        d.getIotDcd().activate([d.getUrn()], function (device, error) {
+  [...]
+          d.setIotDcd(device);
+        });
+  [...]
+    },
+    function(cb3) {
+  [...]
+      getModel(d.getIotDcd(), d.getUrn(), (function (error, model) {
+  [...]
+          d.setIotModel(model);
+          d.setIotVd(d.getIotDcd().createVirtualDevice(d.getIotDcd().getEndpointId(), model));
+          log.verbose(IOTCS, "'" + d.getName() + "' intialized successfully");
+  [...]
+  ```
+  > I follow the next steps when initializing a device:
+  >
+  > 1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
+  > 2. Check whether the device is already activated. If not, I request its activation
+  > 3. With the activated device, get its model definition and create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
 
-```javascript
-grovepi: function(callback) {
-[...]
-  board = new GrovePi.board({
-[...]
-```
-> Create a new instance of the GrovePi `board`
+  ```javascript
+  grovepi: function(callback) {
+  [...]
+    board = new GrovePi.board({
+  [...]
+  ```
+  > Create a new instance of the GrovePi `board`
 
-```javascript
-var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
-var lightSensor = new GrovePi.sensors.LightAnalog(2);
-```
-> Create the instances of each device. Please, note the port numbers used (either analog or digital). These must correspond to those used in the actual board
+  ```javascript
+  var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
+  var lightSensor = new GrovePi.sensors.LightAnalog(2);
+  ```
+  > Create the instances of each device. Please, note the port numbers used (either analog or digital). These must correspond to those used in the actual board
 
-```javascript
-ultrasonicSensor.on('change', function(res) {
-  if (typeof res === 'number') {
-    proximity.getIotVd().update({ distance: res});
-  } else {
-    log.warn(GROVEPI, "Proximity Sensor: Invalid value read: " + res);
-  }
-})
-ultrasonicSensor.watch();
-```
-> Every time the sensor produces data, the `change` event is emitted and `on('change')` callback is called. In such callback, I first check the incoming value (sometimes garbage is received and I must ensure that a valid value is sent to IoTCS) and then _publish_ the data to the right IoTCS virtual device. The JSON structure sent corresponds to the attributes expected for such device model. The IoTCS Client libraries makes this very easy and straightforward to do!
->
-> The device is not watched until we invoke the `device.watch()` method.
->
-> Code for the _Light Sensor_ is similar to this one.
+  ```javascript
+  ultrasonicSensor.on('change', function(res) {
+    if (typeof res === 'number') {
+      proximity.getIotVd().update({ distance: res});
+    } else {
+      log.warn(GROVEPI, "Proximity Sensor: Invalid value read: " + res);
+    }
+  })
+  ultrasonicSensor.watch();
+  ```
+  > Every time the sensor produces data, the `change` event is emitted and `on('change')` callback is called. In such callback, I first check the incoming value (sometimes garbage is received and I must ensure that a valid value is sent to IoTCS) and then _publish_ the data to the right IoTCS virtual device. The JSON structure sent corresponds to the attributes expected for such device model. The IoTCS Client libraries makes this very easy and straightforward to do!
+  >
+  > The device is not watched until we invoke the `device.watch()` method.
+  >
+  > Code for the _Light Sensor_ is similar to this one.
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
