@@ -261,10 +261,19 @@ We need to create a trust-store (as a JSON file) to have access to each and ever
    ```
    Repeat the above procedure for both virtual devices created.
 
-4. This will have generated two JSON files. Do remember which file/ID is for which device. Move them to the `$HOME/projects/grovepi-iotcs` folder.
+4. This procedure will have generated two JSON files named `<device id>.json`. Do remember which file/ID is for which device. Move them to the `$HOME/projects/grovepi-iotcs` folder.
 
+### Build your client sample / analize sample
+I have written a very simple sample that will watch incoming data from the two actual sensors and will send it in real-time to the IoTCS instance.
 
-### Build your client sample
+You can write your own code form scratch or based on mine. Next, I will highlight certain key parts of the code.
+
+My code consists in two files:
+
+* `device.js` which represents a simple _device_ class with some attributes and their getters and setters. The idea for this class was to keep all setup information and classes to interact with a virtual device in IoTCS.
+* `grovepi_iotcs.js` which is the main code. As a summary, this code performs the following tasks:
+  * s
+
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
 ##### Create your application
