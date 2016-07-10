@@ -24,7 +24,10 @@ I provide details about how to setup everything from scratch, assuming you will 
 
 1. Get a microSD card (at least 4GB)
 2. Download Raspbian for Robots image from [here](http://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/). This page also contains detailed instructions about how to write the image to your microSD card.
-3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture: __**TODO**__
+3. Plug your GrovePi+ board in your RPi3. Make sure you do it properly. Have a look to the following picture:
+
+   ![Ultrasonic Ranger](screenshots/board.png)
+
 4. Start your RPi3 and log in. The Raspian for Robots image already includes a nodejs. Unfortunately it's an old one and it's better to install a newer versions
     1. Download the latest version of NodeJS from [here](https://nodejs.org/en/download/current/). Make sure you download the **ARMv6** platform.
     2. Uninstall the previous NodeJS and install (unzip) the new one. I installed it in `$HOME/nodejs` folder.
@@ -80,8 +83,8 @@ as noted above, I've used NodeJS stuff. However, it's a good idea to use the Pyt
 
 6. Now, let's test our Light Sensor and Ultrasonic Ranger devices before going further with my sample. Make sure you take the right sensors :wink::
 
-    ![Ultrasonic Ranger](http://www.seeedstudio.com/wiki/images/3/3a/Ultrasonic_Ranger.jpg)
-    ![Light Sensor](http://www.seeedstudio.com/wiki/images/1/1c/Twig-Light.jpg)
+    ![Ultrasonic Ranger](screenshots/ultrasonic_ranger.png)
+    ![Light Sensor](screenshots/light_sensor.png)
 
 7. Plug each of them in the right ports. It is important to note that there are some sensors that produce analog signals, and others produce digital signals. Thus, the GrovePi+ board contains 3 input ports for analog sensors (numbered as A0, A1 and A2), and 7 input ports for digital sensors (numbered as D2, D3, D4, D5, D6, D7 and D8). You can localize them in the next diagram:
 
@@ -189,7 +192,7 @@ The first step is to define the device models we're going to use in this sample.
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:light
     ```
     2. Attributes:
-       ```
+        ```
     Name: intensity
     Description: Intensity
     Type: Number
@@ -199,6 +202,9 @@ The first step is to define the device models we're going to use in this sample.
 Once done, you should have your two models registered as follows:
 
 ![proximity](screenshots/proximity_sensor_model.png)
+
+and
+
 ![light](screenshots/light_sensor_model.png)
 
 #### Register virtual devices
@@ -208,7 +214,7 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 
 1. While in the `Devices` tab, click on the `Register` icon on the left, and `Register Single Device` button.
 2. Enter a meaningful `Name`, `Manufacturer`, `Serial Number` and `Model Number` values. Type in also the `Shared Secret` (or _password_) for this device. **Remember this shared secret** as it will be used later. Click `Register`.
-3. Take note of the **`Device ID`**.
+3. Take note of the **`Device ID`** automatically generated.
 
 ### Oracle IoTCS setup (Client side)
 #### Clone this repo
