@@ -185,6 +185,7 @@ The first step is to define the device models we're going to use in this sample.
     ```
 
 4. Repeat the same steps for the "Light Sensor" model, with the following data:
+
     1. Details:
         ```
     Name: CarlosC-GrovePi-Light Sensor Model
@@ -359,7 +360,9 @@ ultrasonicSensor.on('change', function(res) {
 ultrasonicSensor.watch();
 ```
 > Every time the sensor produces data, the `change` event is emitted and `on('change')` callback is called. In such callback, I first check the incoming value (sometimes garbage is received and I must ensure that a valid value is sent to IoTCS) and then _publish_ the data to the right IoTCS virtual device. The JSON structure sent corresponds to the attributes expected for such device model. The IoTCS Client libraries makes this very easy and straightforward to do!
+>
 > The device is not watched until we invoke the `device.watch()` method.
+>
 > Code for the _Light Sensor_ is similar to this one.
 
 ### Oracle IoTCS setup (Server side) (2)
