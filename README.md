@@ -4,6 +4,8 @@ Simple test of GrovePi Kit sending data to Oracle IoTCS
 This is a simple node.js project that shows how to send data from devices connected through a GrovePi+ Kit for [Raspberry Pi](http://www.seeedstudio.com/item_detail.html?p_id=2572), to [Oracle Internet Of Things Cloud Service](https://cloud.oracle.com/iot). I'm obviously leveraging IoTCS's JavaScript Device Client Libraries.
 ## Disclamer
 Follow my instructions at your own risk. Although everything related to the RPi, GrovePi+ board and devices is extremely simple and nothing should go wrong, be sure to read any additional information from the original manufacturers of Raspberry and GrovePi+ if you're not sure what you're doing.
+
+I am not, and not pretend to be, an experienced programmer. So don't expect super-high-quality-and-production-ready code. As a Presales Consultant, for me it's enough if it works in a quick customer demo :grin:.
 ## My environment
 I provide details about how to setup everything from scratch, assuming you will be using a similar environment:
 
@@ -369,6 +371,9 @@ I decided to perform the above operations synchronously, that is, initialize IoT
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
+blah blah
+
+
 ##### Create your application
 ##### Register your device models
 ##### Create your explorations
