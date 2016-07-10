@@ -203,7 +203,7 @@ Official and supported IoTCS Client libraries are available in this [page](http:
 #### Create the trust-store files
 This version of the IoTCS JS libraries work with _Trusted assets_ which are defined as material that contribute to the chain of trust between the client and the server. The client library relies on an implementation of the TrustedAssetsManager to securely manage these assets on the client. The client-library has a default implementation of the TrustedAssetsManager which uses a framework native trust-store to secure the trust assets.
 
-We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([Foo](#### Register virtual devices))
+We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([See here](#register-virtual-devices))
 
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
