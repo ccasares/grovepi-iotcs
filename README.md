@@ -276,7 +276,7 @@ My code consists in two files:
  * Setup and initialize the GrovePi board and actual devices
  * Watch the devices and, as new data comes in, send it to its virtual device instance in IoTCS.
 
-I decided to perform the above operations synchronously, that is, initialize IoTCS communication _before_ setting up GrovePi. And watch the devices _after_ the initialization procedures end. Some operations might have been performed concurrently, but anyhow I wanted to do everything in serial. Thus, I've heavily used the `async` NodeJS package (more [here](http://caolan.github.io/async)). These are the key parts of my code:
+I decided to perform the above operations synchronously, that is, initialize IoTCS communication _before_ setting up GrovePi. And watch the devices _after_ the initialization procedures end. Some operations might have been performed concurrently, but anyhow I wanted to do everything in serial. Thus, I've heavily used the `async` NodeJS package (more [here](http://caolan.github.io/async)) because NodeJS is fully asynchronous. These are the key parts of my code:
 
 ```javascript
 var proximity = new Device('Proximity Sensor');
@@ -290,7 +290,7 @@ proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity')
 light.setStoreFile(process.argv[3], storePassword);
 light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
 ```
-> Settign the device URN and trust-store password is key as that's they way for IoTCS to uniquely identify the virtual device
+> Settign the device URN and trust-store password is key as that's the way for IoTCS to uniquely identify the virtual device
 
 ```javascript
 async.series( {
@@ -304,8 +304,36 @@ async.eachSeries( devices, function(d, cb) {
 > I iterate over the `devices` array, initializing each device contained on it. This way, I could easily add new devices with very few new code
 
 ```javascript
+async.series( [
+  function(cb1) {
+[...]
+    d.setIotDcd(new dcl.device.DirectlyConnectedDevice(d.getIotStoreFile(), d.getIotStorePassword()));
+[...]
+  },
+  function(cb2) {
+    if (!d.getIotDcd().isActivated()) {
+[...]
+      d.getIotDcd().activate([d.getUrn()], function (device, error) {
+[...]
+        d.setIotDcd(device);
+      });
+[...]
+  },
+  function(cb3) {
+[...]
+    getModel(d.getIotDcd(), d.getUrn(), (function (error, model) {
+[...]
+        d.setIotModel(model);
+        d.setIotVd(d.getIotDcd().createVirtualDevice(d.getIotDcd().getEndpointId(), model));
+        log.verbose(IOTCS, "'" + d.getName() + "' intialized successfully");
+[...]
 ```
- 
+> I follow the next steps when initializing a device:
+1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
+2. If the device is not yet activated, I request its activation
+3. With the activated device, I create an instance of the `Virtual Device` object, which is the one that will be used at the end to send data
+
+
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
