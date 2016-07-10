@@ -272,7 +272,23 @@ My code consists in two files:
 
 * `device.js` which represents a simple _device_ class with some attributes and their getters and setters. The idea for this class was to keep all setup information and classes to interact with a virtual device in IoTCS.
 * `grovepi_iotcs.js` which is the main code. As a summary, this code performs the following tasks:
-  * s
+ * Setup and instantiate the IoTCS communication and virtual devices
+ * Setup and initialize the GrovePi board and actual devices
+ * Watch the devices and, as new data comes in, send it to its virtual device instance in IoTCS.
+
+I decided to perform the above operations synchronously, that is, initialize IoTCS communication _before_ setting up GrovePi. And watch the devices _after_ the initialization procedures end. Some operations might have been performed concurrently, but anyhow I wanted to do everything in serial. Thus, I've heavily used the `async` NodeJS package (more [here](http://caolan.github.io/async)). These are the key parts of my code:
+
+```javascript
+var proximity = new Device('Proximity Sensor');
+var light = new Device('Light Sensor');
+```
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
