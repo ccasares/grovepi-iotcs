@@ -189,19 +189,22 @@ Official and supported IoTCS Client libraries are available in this [page](http:
    $ git clone https://github.com/ccasares/grovepi-iotcs
    ```
 
-3. Unzip the client library ZIP file into the `..` folder and you can now safely remove the `iotcs-csl-js-bin-16.2.3.1.1-14.zip` file
+3. Unzip the client library ZIP file into the `..` folder and you can then safely remove the `iotcs-csl-js-bin-16.2.3.1.1-14.zip` file
    ```
    unzip iotcs-csl-js-bin-16.2.3.1.1-14.zip -d ..
    ```
 
-4. Let's create a soft link to the JS library in our project folder
+4. Finally let's create a soft link to the JS library in our project folder
    ```
    ln -s ../iot/csl/js/modules/device-library.node.js .
    ```
-
-5. dd
+   This is not strictly necessary, but to avoid to write the whole path to the JS library in my code :wink:
 
 #### Create the trust-store files
+This version of the IoTCS JS libraries work with _Trusted assets_ which are defined as material that contribute to the chain of trust between the client and the server. The client library relies on an implementation of the TrustedAssetsManager to securely manage these assets on the client. The client-library has a default implementation of the TrustedAssetsManager which uses a framework native trust-store to secure the trust assets.
+
+We need to create a trust-store (as a JSON file) to have access to each and every virtual device registered in the IoTCS platform ([Foo](#### Register virtual devices))
+
 ### Build your client sample
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
