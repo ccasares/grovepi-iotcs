@@ -168,7 +168,7 @@ The first step is to define the device models we're going to use in this sample.
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity
     ```
 
-        The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. See more about URNs [here](https://en.wikipedia.org/wiki/Uniform_Resource_Name)
+        The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. **Make sure you use the same URN as above**. You might use your own, but then you'll need to change it accordingly in your code. See more about URNs [here](https://en.wikipedia.org/wiki/Uniform_Resource_Name)
 
     2. Attributes:
 
@@ -195,6 +195,11 @@ The first step is to define the device models we're going to use in this sample.
     Type: Number
     Range: From 0.0 to 999999.0
     ```
+
+Once done, you should have your two models registered as follows:
+
+![proximity](screenshots/proximity_sensor_model.png)
+![light](screenshots/light_sensor_model.png)
 
 #### Register virtual devices
 You must first register each device with Oracle IoT Cloud Service before the device can communicate and send any data to Oracle IoT Cloud Service.
