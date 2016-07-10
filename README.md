@@ -282,12 +282,10 @@ I decided to perform the above operations synchronously, that is, initialize IoT
 var proximity = new Device('Proximity Sensor');
 var light = new Device('Light Sensor');
 ```
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
+| Code        | Comments           |
+| ------------- |:-------------|
+| var proximity = new Device('Proximity Sensor');| right-aligned |
+| var light = new Device('Light Sensor');| centered      |
 
 
 ### Oracle IoTCS setup (Server side) (2)
