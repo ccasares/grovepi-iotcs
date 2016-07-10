@@ -30,17 +30,17 @@ I provide details about how to setup everything from scratch, assuming you will 
     2. Uninstall the previous NodeJS and install (unzip) the new one. I installed it in `$HOME/nodejs` folder.
     3. Remove any existing `node` and `npm` existing soft links in `/usr/local/bin` folder.
     4. Create soft links for both `node` and `npm` in `/usr/local/bin` folder, pointing to your NodeJS installation.
-    ```bash
+       ```bash
     $ cd /usr/local/bin
     $ sudo ln -s $HOME/nodejs/bin/node .
     $ sudo ln -s $HOME/nodejs/bin/npm .
     ```
     5. Install `node-forge` package, globally
-    ```bash
+       ```bash
     $ sudo npm install -g node-forge
     ```
     6. Update your environment to include `NODE_PATH=$HOME/nodejs/lib/node_modules` environment variable
-    ```bash
+       ```bash
     $ cd $HOME
     $ vi .profile
     (add export NODE_PATH=$HOME/nodejs/lib/node_modules line at the end)
@@ -204,7 +204,7 @@ Official and supported IoTCS Client libraries are available in this [page](http:
 
 1. Login to RPi3 and create the `$HOME/projects` folder.
 2. Move into `$HOME/projects` folder and clone this repo
-   
+
    ```bash
    $ cd $HOME/projects
    $ git clone https://github.com/ccasares/grovepi-iotcs
