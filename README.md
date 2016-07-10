@@ -231,11 +231,13 @@ We need to create a trust-store (as a JSON file) to have access to each and ever
 
 1. Go to the `$HOME/iot/csl/js/bin` folder
 2. Run the `provisioner.sh` script with:
+
    ```bash
    $ bash provisioner.sh
    ```
    **Do not** attempt to run it with `sh` or by making it executable with `chmod +x provisioner.sh`. Running the script with `sh` shell will fail, as it relies to the `{OSTYPE}` environment variable, which doesn't seem to be available within `sh` shell in this Raspbian image.
 3. Type in the input parameters as follows:
+
    ```
    Enter Cloud Service URI: https://<your IoTCS instance hostname> (no need to include any context root, just the hostname using the HTTPS protocol)
    Enter the ID: <the virtual device ID obtained when registered earlier. I.e: AAAAAAQXFMEA-XX>
@@ -244,7 +246,7 @@ We need to create a trust-store (as a JSON file) to have access to each and ever
    ```
    Repeat the above procedure for both virtual devices created.
 
- 4. This will have generated two JSON files. Do remember which file/ID is for which device. Move them to the `$HOME/projects/grovepi-iotcs` folder.
+4. This will have generated two JSON files. Do remember which file/ID is for which device. Move them to the `$HOME/projects/grovepi-iotcs` folder.
 
 
 ### Build your client sample
