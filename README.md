@@ -186,6 +186,7 @@ The first step is to define the device models we're going to use in this sample.
     Range: From 0 to 9999
     ```
 
+
 4. Repeat the same steps for the "Light Sensor" model, with the following data:
 
     1. Details:
@@ -416,7 +417,7 @@ In your RPi3, run your NodeJS app with the command:
 $ node <your app>.js <trust-store-file1>.json <trust-store-file2>.json
 ```
 
-If you run my sample:
+If you run my sample (trust-store file names are a sample. Use your owns!):
 
 ```bash
 $ node grovepi_iotcs.js AAAAAAQXFMEA-XX.json AAAAAAQXFMEA-YY.json
