@@ -204,6 +204,7 @@ The first step is to define the device models we're going to use in this sample.
     Range: From 0.0 to 999999.0
     ```
 
+
 Once done, you should have your two models registered as follows:
 
 ![proximity](screenshots/proximity_sensor_model.png)
@@ -220,6 +221,7 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 1. While in the `Devices` tab, click on the `Register` icon on the left, and `Register Single Device` button.
 2. Enter a meaningful `Name`, `Manufacturer`, `Serial Number` and `Model Number` values. Type in also the `Shared Secret` (or _password_) for this device. **Remember this shared secret** as it will be used later. Click `Register`.
 3. Take note of the **`Device ID`** automatically generated.
+
 
 ### Oracle IoTCS setup (Client side)
 #### Clone this repo
