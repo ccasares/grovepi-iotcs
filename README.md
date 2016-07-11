@@ -391,20 +391,61 @@ In IoTCS, an IoT _application_ is a set of Oracle IoT Cloud Service definitions 
 * Zero or more Integrations
  * An _Integration_ is the way to _send_ the incoming data (either processed by an Exploration or _raw_ data as it's received in IoTCS) to external third party applications.
 
-##### Create your application
 To create your application simply click in the `Applications` tab and the `Create Application` button. Provide a unique name and a description.
 
 Once it's created, we'll go through the setup. First, we need to register which devices models are related to the new Application.
 
-##### Register your device models
+#### Register your device models
 Click on `Device Model` button on the left. You can create new devices from here, but let's associate the two devices we created before.
 Click the _hand_ icon
 
-![Light Sensor](screenshots/finger.png)
+![finger](screenshots/finger.png)
 
-and, from the list, select the `Proximity Sensor` and `Light Sensor` devices.
+and, from the list, select the `Proximity Sensor` and `Light Sensor` devices (scroll to the right column to _check_ those devices). Click `Done` and you should see the selected devices models in the list.
 
-##### Create your explorations
+In the top right, you'll see the total number of _Virtual Devices_ currently associated to the selected device models. Should you see `0` now is normal, as a _Virtual Device_ doesn't get associated to a _Device Model_ until it gets registered and associated to Device Model's URN.
+
+#### Run the sample and see messages coming in!
+Before moving on, let's going to run our NodeJS code and see if we get messages in IoTCS!
+
+In your RPi3, run your NodeJS app with the command:
+
+```bash
+$ node <your app>.js <trust-store-file1>.json <trust-store-file2>.json
+```
+
+If you run my sample:
+
+```bash
+$ node grovepi_iotcs.js AAAAAAQXFMEA-XX.json AAAAAAQXFMEA-YY.json
+```
+
+If everything goes fine, this is the output you should see:
+
+```bash
+info IOTCS Initializing IoTCS devices
+verb IOTCS Initializing IoT device 'Proximity Sensor'
+verb IOTCS 'Proximity Sensor' device is already activated
+verb IOTCS 'Proximity Sensor' intialized successfully
+verb IOTCS Initializing IoT device 'Light Sensor'
+verb IOTCS 'Light Sensor' device is already activated
+verb IOTCS 'Light Sensor' intialized successfully
+info GROVEPI Initializing GrovePi devices
+verb GROVEPI Starting Board setup
+info GrovePi.board GrovePi is initing
+verb GROVEPI GrovePi Version :: 1.2.2
+verb GROVEPI Ultrasonic Ranger Digital Sensor (start watch)
+verb GROVEPI Light Analog Sensor (start watch)
+info GROVEPI GrovePi devices initialized successfully
+info PROCESS Initialization completed
+```
+
+With the app running, go back to the IoTCS console, open your _Application_, click on `Data and Explorations`, `Messages` tab, and you should see messages coming in:
+
+![messages](screenshots/messages.png)
+
+#### Create your explorations
+
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
 You will need to purchase an instance of Oracle Process Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/process to get more info.
