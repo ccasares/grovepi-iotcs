@@ -177,6 +177,7 @@ The first step is to define the device models we're going to use in this sample.
         The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. **Make sure you use the same URN as above**. You might use your own, but then you'll need to change it accordingly in your code. See more about URNs [here](https://en.wikipedia.org/wiki/Uniform_Resource_Name)
 
     * Attributes:
+
         Click the `+` button to create a new attribute with the following details:
 
         ```
