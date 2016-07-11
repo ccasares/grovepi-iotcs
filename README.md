@@ -166,7 +166,6 @@ The first step is to define the device models we're going to use in this sample.
 
    ![add model](screenshots/add_model.png)
 3. In my sample I created my device model with the following data:
-
     1. Details:
         ```
     Name: CarlosC-GrovePi-Proximity Sensor Model
@@ -187,7 +186,6 @@ The first step is to define the device models we're going to use in this sample.
     ```
 
 4. Repeat the same steps for the "Light Sensor" model, with the following data:
-
     1. Details:
         ```
     Name: CarlosC-GrovePi-Light Sensor Model
