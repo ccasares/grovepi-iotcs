@@ -205,13 +205,13 @@ The first step is to define the device models we're going to use in this sample.
     Range: From 0.0 to 999999.0
     ```
 
-    Once done, you should have your two models registered as follows:
+  Once done, you should have your two models registered as follows:
 
-    ![proximity](screenshots/proximity_sensor_model.png)
+  ![proximity](screenshots/proximity_sensor_model.png)
 
-    and
+  and
 
-    ![light](screenshots/light_sensor_model.png)
+  ![light](screenshots/light_sensor_model.png)
 
 #### Register virtual devices
 You must first register each device with Oracle IoT Cloud Service before the device can communicate and send any data to Oracle IoT Cloud Service.
