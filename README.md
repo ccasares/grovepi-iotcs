@@ -166,7 +166,7 @@ The first step is to define the device models we're going to use in this sample.
 
    ![add model](screenshots/add_model.png)
 3. In my sample I created my device model with the following data:
-    1. Details:
+    * Details:
         ```
     Name: CarlosC-GrovePi-Proximity Sensor Model
     Description: Proximity Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
@@ -175,7 +175,7 @@ The first step is to define the device models we're going to use in this sample.
 
         The `URN`(_Uniform Resource Name_) is like a namespace in XML. It uniquely defines the device model in the IoTCS infrastructure. **Make sure you use the same URN as above**. You might use your own, but then you'll need to change it accordingly in your code. See more about URNs [here](https://en.wikipedia.org/wiki/Uniform_Resource_Name)
 
-    2. Attributes:
+    * Attributes:
         Click the `+` button to create a new attribute with the following details:
 
        ```
@@ -186,14 +186,14 @@ The first step is to define the device models we're going to use in this sample.
     ```
 
 4. Repeat the same steps for the "Light Sensor" model, with the following data:
-    1. Details:
+    * Details:
         ```
     Name: CarlosC-GrovePi-Light Sensor Model
     Description: Light Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
     URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:light
     ```
 
-    2. Attributes:
+    * Attributes:
 
         ```
     Name: intensity
@@ -203,13 +203,13 @@ The first step is to define the device models we're going to use in this sample.
     ```
 
 
-Once done, you should have your two models registered as follows:
+    Once done, you should have your two models registered as follows:
 
-![proximity](screenshots/proximity_sensor_model.png)
+    ![proximity](screenshots/proximity_sensor_model.png)
 
-and
+    and
 
-![light](screenshots/light_sensor_model.png)
+    ![light](screenshots/light_sensor_model.png)
 
 #### Register virtual devices
 You must first register each device with Oracle IoT Cloud Service before the device can communicate and send any data to Oracle IoT Cloud Service.
