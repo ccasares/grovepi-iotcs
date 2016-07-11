@@ -333,6 +333,17 @@ I decided to perform the above operations synchronously, that is, initialize IoT
           log.verbose(IOTCS, "'" + d.getName() + "' intialized successfully");
   [...]
   ```
+
+  ```javascript
+  function getModel(device, urn, callback) {
+    device.getDeviceModel(urn, function (response, error) {
+      if (error) {
+        callback(error);
+      }
+      callback(null, response);
+    });
+  }
+  ```
   > I follow the next steps when initializing a device:
   >
   > 1. Create an instance of the `DirectlyConnectedDevice` object, providing the trust-store file and password
@@ -371,11 +382,28 @@ I decided to perform the above operations synchronously, that is, initialize IoT
 
 ### Oracle IoTCS setup (Server side) (2)
 #### Create and setup your application
-blah blah
-
+In IoTCS, an IoT _application_ is a set of Oracle IoT Cloud Service definitions that comprise an end-to-end IoT solution. An Application contains the following:
+* A mandatory unique name and description
+* Optional metadata
+* One or more Device Models associated
+* Zero or more Explorations
+ * An _Exploration_ allows you to process and analyze data messages that are sent from your devices to Oracle IoT Cloud Service
+* Zero or more Integrations
+ * An _Integration_ is the way to _send_ the incoming data (either processed by an Exploration or _raw_ data as it's received in IoTCS) to external third party applications.
 
 ##### Create your application
+To create your application simply click in the `Applications` tab and the `Create Application` button. Provide a unique name and a description.
+
+Once it's created, we'll go through the setup. First, we need to register which devices models are related to the new Application.
+
 ##### Register your device models
+Click on `Device Model` button on the left. You can create new devices from here, but let's associate the two devices we created before.
+Click the _hand_ icon
+
+![Light Sensor](screenshots/finger.png)
+
+and, from the list, select the `Proximity Sensor` and `Light Sensor` devices.
+
 ##### Create your explorations
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
