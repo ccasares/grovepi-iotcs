@@ -447,6 +447,25 @@ With the app running, go back to the IoTCS console, open your _Application_, cli
 ![messages](screenshots/messages.png)
 
 #### Create your explorations
+As pointed out above, an _Exploration_ allows you to process and analyze data messages that are sent from your devices to Oracle IoT Cloud Service. This is a key feature of IoTCS. Once you get the data from devices you have mainly two options:
+
+* Get the _raw_ data as it comes in and forward it to an external application / repository. This is a valid use case when you want to, i.e., feed a Big Data platform.
+* Perform a number of calculations, pattern-matching or any other _analysis_ to the incoming data, producing a new _subset_ of events
+
+The second is achieved with **Explorations**.
+
+Explorations are composed by:
+
+* _Data Streams_ (or _Exploration Sources_): represent the streams of data being sent to stream explorer tool. In brief, the _data coming in_.
+* _Explorations_: a visual representation of real time disparate event data flows for insightful data interrogation and to quickly apply sophisticated business intelligence. They allow you to define business criteria for managing data. They are the visual representation of the data streamed from Oracle IoT Cloud Service devices.
+
+More about _Explorations_ [here](https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-75F2D876-E281-4B2D-8953-9A7386CE456B.htm#IOTGS-GUID-75F2D876-E281-4B2D-8953-9A7386CE456B).
+
+To create the explorations we need for our tutorial, follow these steps:
+
+1. Blah1
+
+2. Blah2
 
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
