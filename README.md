@@ -167,26 +167,24 @@ The first step is to define the device models we're going to use in this sample.
    ![add model](screenshots/add_model.png)
 
 3. In my sample I created my device model with the following data:
-
-4. In my sample I created my device model with the following data:
     * Details:
         ```
-    Name: CarlosC-GrovePi-Light Sensor Model
-    Description: Light Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
-    URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:light
+    Name: CarlosC-GrovePi-Proximity Sensor Model
+    Description: Proximity Sensor Model from GrovePi (http://www.dexterindustries.com/grovepi)
+    URN: urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity
     ```
 
     * Attributes:
 
         ```
-    Name: intensity
-    Description: Intensity
-    Type: Number
-    Range: From 0.0 to 999999.0
+    Name: distance
+    Description: Distance in centimeters
+    Type: Integer
+    Range: From 0 to 9999
     ```
 
 
-5. Repeat the same steps for the "Light Sensor" model, with the following data:
+4. Repeat the same steps for the "Light Sensor" model, with the following data:
     * Details:
         ```
     Name: CarlosC-GrovePi-Light Sensor Model
