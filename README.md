@@ -185,6 +185,7 @@ The first step is to define the device models we're going to use in this sample.
     Range: From 0 to 9999
     ```
 
+
 4. Repeat the same steps for the "Light Sensor" model, with the following data:
     * Details:
         ```
@@ -201,7 +202,6 @@ The first step is to define the device models we're going to use in this sample.
     Type: Number
     Range: From 0.0 to 999999.0
     ```
-
 
     Once done, you should have your two models registered as follows:
 
