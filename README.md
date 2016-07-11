@@ -168,7 +168,7 @@ The first step is to define the device models we're going to use in this sample.
 
 3. In my sample I created my device model with the following data:
 
-4. Repeat the same steps for the "Light Sensor" model, with the following data:
+4. In my sample I created my device model with the following data:
     * Details:
         ```
     Name: CarlosC-GrovePi-Light Sensor Model
@@ -185,13 +185,6 @@ The first step is to define the device models we're going to use in this sample.
     Range: From 0.0 to 999999.0
     ```
 
-    Once done, you should have your two models registered as follows:
-
-    ![proximity](screenshots/proximity_sensor_model.png)
-
-    and
-
-    ![light](screenshots/light_sensor_model.png)
 
 5. Repeat the same steps for the "Light Sensor" model, with the following data:
     * Details:
