@@ -165,6 +165,7 @@ The first step is to define the device models we're going to use in this sample.
 2. Click the `+` button to create a new device model
 
    ![add model](screenshots/add_model.png)
+
 3. In my sample I created my device model with the following data:
     * Details:
         ```
