@@ -477,6 +477,11 @@ To create the explorations we need for our tutorial, we need to:
 
 2. Create the Explorations
 
+  The whole idea for our explorations is to correlate the incoming events for both sensors (proximity and light) and generate an event when the distance is lower than 10 centimeters **and** when the light intensity is greater than 500. Also, we don't want to generate the same event repeatedly, just at most one every 5 seconds.
+
+  ![epn](screenshots/epn.png)
+
+
 
 
 ### Build your Process in Oracle Process Cloud Service
