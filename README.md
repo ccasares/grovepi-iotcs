@@ -501,10 +501,16 @@ To create the explorations we need for our tutorial, we need to:
 
       ![epn](screenshots/publish.png)
 
-  8. Click again `Add` button in the `Explorations` section
+  8. Click on `Back` (top right). You'll notice that the new Exploration is in _Published_ state. However, we must register its message format (the _output_ of the Exploration) before it can be used as input of other Explorations. Click the icon over the _Create Format_ label
+
+        ![epn](screenshots/create_format.png)
+
+  9. Leave all values as-is and click `Create`.
+
+  10. Click again `Add` button in the `Explorations` section
     * `Exploration Type`: `Exploration`
-    * `Exploration Name`: `ExplorationMerge`
-    * `Exploration Source`: Select `ProximitySensorStream`
+    * `Exploration Name`: `ExplorationRules`
+    * `Exploration Source`: Select `ExplorationMerge`
 
 
 
