@@ -468,7 +468,7 @@ To create the explorations we need for our tutorial, we need to:
 1. Create the Streams (_Data Sources_)
   1. Open your IoTCS Application and click on the `Data and Explorations` icon on the left
   2. Go to `Explorations` tab
-  3. Click `Add` button
+  3. Click `Add` button in the `Exploration Sources` section
     * `Name`: `ProximitySensorStream`
     * `Message Format`: `CarlosC GrovePi-Proximity Sensor Model` (or the name of your `Proximty Sensor` model, when you created it)
     * `Device Metadata`: select the `Location` attribute
@@ -481,6 +481,19 @@ To create the explorations we need for our tutorial, we need to:
 
   ![epn](screenshots/epn.png)
 
+  1. Click `Add` button in the `Explorations` section
+    * `Exploration Type`: `Exploration`
+    * `Exploration Name`: `ExplorationMerge`
+    * `Exploration Source`: Select `ProximitySensorStream`
+  2. Select the just created exploration and click `View`
+  3. The _Stream Explorer_ editor will show up. In the `Sources` section, click to select `LightSensorStream` as an additional input.
+  4. When you have more than one source stream, you must specify one or more correlations based on the attributes of each stream. Use the `source_location` attribute in both streams.
+    * Remember that you specify the **same** `Location` metadata value when registering the Virtual Devices.
+  5. In the `Properties` link, keep all attributes from `ProximitySensorStream` and just `data_intensity` from `LightSensorStream` (check the colors assigned to each input stream to identify the attributes of each stream)
+
+    ![epn](screenshots/properties.png)
+
+  6. d
 
 
 
