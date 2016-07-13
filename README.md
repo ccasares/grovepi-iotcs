@@ -467,7 +467,7 @@ To create the explorations we need for our tutorial, follow these steps:
 
 2. Blah2
 
-3. Blah3
+3. Blah33
 
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
