@@ -493,11 +493,20 @@ To create the explorations we need for our tutorial, we need to:
 
     ![epn](screenshots/properties.png)
 
-  6. We must set a time event based window in which the correlation of both streams will take place. Click the _Window Drawer_ and set the range as follows:
+  6. We must set a time event based window in which the correlation of both streams will take place. Click the _Window Drawer_ and set the ranges as follows:
 
       ![epn](screenshots/time_window.png)
 
-  7. We must set a time event based window in which the correlation of both streams will take place. Click the _Window Drawer_ and set the range as follows:
+  7. We're done with this Exploration. In order to be able to use it as the input of new explorations, we must first _Publish_ it. Click on the `Actions` button and `Publish` it:
+
+      ![epn](screenshots/publish.png)
+
+  8. Click again `Add` button in the `Explorations` section
+    * `Exploration Type`: `Exploration`
+    * `Exploration Name`: `ExplorationMerge`
+    * `Exploration Source`: Select `ProximitySensorStream`
+
+
 
 
 
