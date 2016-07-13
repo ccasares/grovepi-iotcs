@@ -493,7 +493,11 @@ To create the explorations we need for our tutorial, we need to:
 
     ![epn](screenshots/properties.png)
 
-  6. d
+  6. We must set a time event based window in which the correlation of both streams will take place. Click the _Window Drawer_ and set the range as follows:
+
+      ![epn](screenshots/time_window.png)
+
+  7. We must set a time event based window in which the correlation of both streams will take place. Click the _Window Drawer_ and set the range as follows:
 
 
 
