@@ -511,8 +511,8 @@ To create the explorations we need for our tutorial, we need to:
     * `Exploration Type`: `Exploration`
     * `Exploration Name`: `ExplorationRules`
     * `Exploration Source`: Select **`ExplorationMerge`**
-    
-    > Note how this time we're using the output of an Exploration as an input, rather than using a Stream
+
+      > Note how this time we're using the output of an Exploration as an input, rather than using a Stream
 
   11. blah
 
