@@ -220,8 +220,10 @@ One _virtualized device_ can be associated with one or more _device models_. Non
 
 1. While in the `Devices` tab, click on the `Register` icon on the left, and `Register Single Device` button.
 2. Enter a meaningful `Name`, `Manufacturer`, `Serial Number` and `Model Number` values. Type in also the `Shared Secret` (or _password_) for this device. **Remember this shared secret** as it will be used later. Click `Register`.
-3. Take note of the **`Device ID`** automatically generated.
+3. In `Location` enter a fixed value, i.e., `Oracle`
+4. Take note of the **`Device ID`** automatically generated.
 
+Repeat the above steps for both actual devices. Use a meaningful name for each one (for example `CarlosC-ProximitySensor` and `CarlosC-LightSensor`)
 
 ### Oracle IoTCS setup (Client side)
 #### Clone this repo
@@ -461,15 +463,21 @@ Explorations are composed by:
 
 More about _Explorations_ [here](https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-75F2D876-E281-4B2D-8953-9A7386CE456B.htm#IOTGS-GUID-75F2D876-E281-4B2D-8953-9A7386CE456B).
 
-To create the explorations we need for our tutorial, follow these steps:
+To create the explorations we need for our tutorial, we need to:
 
-1. Blah1
+1. Create the Streams (_Data Sources_)
+  1. Open your IoTCS Application and click on the `Data and Explorations` icon on the left
+  2. Go to `Explorations` tab
+  3. Click `Add` button
+    * `Name`: `ProximitySensorStream`
+    * `Message Format`: `CarlosC GrovePi-Proximity Sensor Model` (or the name of your `Proximty Sensor` model, when you created it)
+    * `Device Metadata`: select the `Location` attribute
 
-2. Blah2
+    Repeat the above steps for the `Light Sensor`. Name it as `LightSensorStream`.
 
-3. Blah33
+2. Create the Explorations
 
-dfghjkl2
+
 
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
