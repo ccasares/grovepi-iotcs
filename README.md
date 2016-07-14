@@ -523,7 +523,18 @@ To create the explorations we need for our tutorial, we need to:
 
     ![filters](screenshots/filters.png)
 
-  14. s s s
+  14. Finally, set a time event window of 5 seconds, as follows:
+
+    ![filters](screenshots/time_window2.png)
+
+  14. Publish this Exploration and register its `Message Format`
+  15. Let's create the final Exploration:
+    * `Exploration Type`: `Eliminate Duplicates`
+      > This time we're using one of the pre-built patterns. You may see there are many useful ones. For more information on the patterns, see [here](https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-75F2D876-E281-4B2D-8953-9A7386CE456B.htm#IOTGS-GUID-75F2D876-E281-4B2D-8953-9A7386CE456B)
+    * `Exploration Name`: `ExplorationRemoveDups`
+    * `Exploration Source`: Select **`ExplorationRules`**
+
+  16. blah
 
 
 
