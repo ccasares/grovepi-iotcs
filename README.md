@@ -563,7 +563,9 @@ The task is assigned to the `Incident Manager` role. So we will need to add ours
 Feel free to model your own complex process and leverage other PaaS services!
 
 #### Deploy and post-deployment tasks
-Once you deploy the application, a new
+Once you deploy the application, a new PCS Role should have been created. You need to add yourself as a member:
+
+    ![roles](screenshots/roles.png)
 
 ### Create your integration in Oracle Integration Cloud Service
 #### Get your Instance
