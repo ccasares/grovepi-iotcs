@@ -227,7 +227,7 @@ Repeat the above steps for both actual devices. Use a meaningful name for each o
 
 ### Oracle IoTCS setup (Client side)
 #### Clone this repo
-Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be released at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="iotcs-csl-js-bin-16.2.3.1.1-14.zip">here</a>. To ease things, we will clone this repo so that you'll get all files you need for this tutorial.
+Official and supported IoTCS Client libraries are available in this [page](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html). However, we're going to use a newer version which hasn't yet be released at the time I wrote this tutorial. This is because it contains some fixes that we'll take advantage of. You can find it in this repo <a href="assets/iotcs-csl-js-bin-16.2.3.1.1-14.zip">here</a>. To ease things, we will clone this repo so that you'll get all files you need for this tutorial.
 
 1. Login to RPi3 and create the `$HOME/projects` folder.
 2. Move into `$HOME/projects` folder and clone this repo
@@ -539,17 +539,18 @@ To create the explorations we need for our tutorial, we need to:
 
     ![filters](screenshots/remove_dups.png)
 
-      > _We are detecting and eliminating any duplicates coming from the _ExplorationRules_ stream, based in the _location_ attribute for 5 seconds.
+      > _We are detecting and eliminating any duplicates coming from the_ ExplorationRules _stream, based in the_ location _attribute for 5 seconds.
 
   17. Publish the Exploration, register the `Message Format` and we're done with the Explorations!!
-
-
-
 
 ### Build your Process in Oracle Process Cloud Service
 #### Get your Instance
 You will need to purchase an instance of Oracle Process Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/process to get more info.
-#### Create your process application
+#### Import the Process Cloud Service Application
+Every time we produce an event from `ExplorationRemoveDups`, we want to trigger an instance of a Process Cloud Service process. I created a dummy process with just one Human Task. Rather than going through all the creation process, I've included an export of the application, so that you can freely import it in your PCS environment.
+
+Just go to your PCS environment and import the <a href="assets/IoTCS Incident.exp">IoTCS Incident.exp</a> file.
+
 ### Create your integration in Oracle Integration Cloud Service
 #### Get your Instance
 You will need to purchase an instance of Oracle Integration Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/integration to get more info.
