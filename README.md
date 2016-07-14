@@ -514,7 +514,7 @@ To create the explorations we need for our tutorial, we need to:
 
       > Note how this time we're using the output of an Exploration as an input, rather than using a Stream
 
-  11. blah
+  11. blah2
 
 
 
