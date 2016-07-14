@@ -551,6 +551,18 @@ Every time we produce an event from `ExplorationRemoveDups`, we want to trigger 
 
 Just go to your PCS environment and import the <a href="assets/IoTCS Incident.exp">IoTCS Incident.exp</a> file.
 
+#### Quick review of the process
+The process itself is ridiculously simple. Just a simple Human Task so that we can easily check that a message from IoTCS has been successfully received.
+
+  ![filters](screenshots/process.png)
+
+The task is assigned to the `Incident Manager` role. So we will need to add ourselves to such role after deployment.
+
+Feel free to model your own complex process and leverage other PaaS services!
+
+#### Deploy and post-deployment tasks
+
+
 ### Create your integration in Oracle Integration Cloud Service
 #### Get your Instance
 You will need to purchase an instance of Oracle Integration Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/integration to get more info.
