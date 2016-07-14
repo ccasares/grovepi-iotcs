@@ -517,11 +517,11 @@ To create the explorations we need for our tutorial, we need to:
   11. Select this new Exploration and `View` it
   12. In the `Summaries` section, create the following aggregation variables:
 
-          ![epn](screenshots/summaries.png)
+![summaries](screenshots/summaries.png)
 
   13. In the `Filters` sectoin, create the following filters:
 
-            ![epn](screenshots/filters.png)
+![filters](screenshots/filters.png)
 
   14. s s s
 
