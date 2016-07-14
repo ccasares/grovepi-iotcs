@@ -523,7 +523,7 @@ To create the explorations we need for our tutorial, we need to:
 
             ![epn](screenshots/filters.png)
 
-  14. s
+  14. s s
 
 
 
