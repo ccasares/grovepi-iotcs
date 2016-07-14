@@ -525,7 +525,7 @@ To create the explorations we need for our tutorial, we need to:
 
   14. Finally, set a time event window of 5 seconds, as follows:
 
-    ![filters](screenshots/time_window2.png)
+    ![time_window2](screenshots/time_window2.png)
 
   14. Publish this Exploration and register its `Message Format`
   15. Let's create the final Exploration:
@@ -537,7 +537,7 @@ To create the explorations we need for our tutorial, we need to:
 
   16. Open the Exploration and set the parameters as follows:
 
-    ![filters](screenshots/remove_dups.png)
+    ![remove_dups](screenshots/remove_dups.png)
 
       > _We are detecting and eliminating any duplicates coming from the_ ExplorationRules _stream, based in the_ location _attribute for 5 seconds.
 
@@ -552,16 +552,18 @@ Every time we produce an event from `ExplorationRemoveDups`, we want to trigger 
 Just go to your PCS environment and import the <a href="assets/IoTCS Incident.exp">IoTCS Incident.exp</a> file.
 
 #### Quick review of the process
-The process itself is ridiculously simple. Just a simple Human Task so that we can easily check that a message from IoTCS has been successfully received.
+The process itself is ridiculously simple. Just a single Human Task so that we can easily check that a message from IoTCS has been successfully received.
 
-  ![filters](screenshots/process.png)
+  ![process](screenshots/process.png)
 
-The task is assigned to the `Incident Manager` role. So we will need to add ourselves to such role after deployment.
+The task is assigned to the `Incident Manager` role. So we will need to add ourselves to such role after deployment:
+
+  ![roles](screenshots/roles.png)
 
 Feel free to model your own complex process and leverage other PaaS services!
 
 #### Deploy and post-deployment tasks
-
+Once you deploy the application, a new
 
 ### Create your integration in Oracle Integration Cloud Service
 #### Get your Instance
