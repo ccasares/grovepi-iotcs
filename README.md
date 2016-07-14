@@ -556,21 +556,24 @@ The process itself is ridiculously simple. Just a single Human Task so that we c
 
   ![process](screenshots/process.png)
 
-The task is assigned to the `Incident Manager` role. So we will need to add ourselves to such role after deployment:
-
-  ![roles](screenshots/roles.png)
+The task is assigned to the `Incident Manager` role. So we will need to add ourselves to such role after deployment (see below).
 
 Feel free to model your own complex process and leverage other PaaS services!
 
 #### Deploy and post-deployment tasks
 Once you deploy the application, a new PCS Role should have been created. You need to add yourself as a member:
 
-    ![roles](screenshots/roles.png)
+  ![roles](screenshots/roles.png)
 
 ### Create your integration in Oracle Integration Cloud Service
 #### Get your Instance
 You will need to purchase an instance of Oracle Integration Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/integration to get more info.
 #### Create your integration
+We have just finished our development for IoTCS and for PCS. However we still need to _connect_ IoTCS and PCS. For such purpose, we're going to leverage Oracle Integration Cloud Service (ICS).
+
+  ![arq_without_ics](screenshots/arq_without_ics.png)
+
+
 ### Oracle IoTCS setup (Server side) (3)
 #### Create and setup your application (2)
 ##### Create the enterprise application integration
