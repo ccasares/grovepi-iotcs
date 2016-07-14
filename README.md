@@ -503,7 +503,7 @@ To create the explorations we need for our tutorial, we need to:
 
   8. Click on `Back` (top right). You'll notice that the new Exploration is in _Published_ state. However, we must register its message format (the _output_ of the Exploration) before it can be used as input of other Explorations. Click the icon over the _Create Format_ label
 
-        ![epn](screenshots/create_format.png)
+      ![epn](screenshots/create_format.png)
 
   9. Leave all values as-is and click `Create`.
 
@@ -532,12 +532,16 @@ To create the explorations we need for our tutorial, we need to:
     * `Exploration Type`: `Eliminate Duplicates`
 
       > This time we're using one of the pre-built patterns. You may see there are many useful ones. For more information on the patterns, see [here](https://docs.oracle.com/cloud/latest/iot/IOTGS/GUID-75F2D876-E281-4B2D-8953-9A7386CE456B.htm#IOTGS-GUID-75F2D876-E281-4B2D-8953-9A7386CE456B)
-      
+
     * `Exploration Name`: `ExplorationRemoveDups`
-    * `Exploration Source`: Select **`ExplorationRules`**
 
-  16. blah
+  16. Open the Exploration and set the parameters as follows:
 
+    ![filters](screenshots/remove_dups.png)
+
+      > _We are detecting and eliminating any duplicates coming from the _ExplorationRules_ stream, based in the _location_ attribute for 5 seconds.
+
+  17. Publish the Exploration, register the `Message Format` and we're done with the Explorations!!
 
 
 
