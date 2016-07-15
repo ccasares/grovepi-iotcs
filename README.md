@@ -632,6 +632,7 @@ If everything works, this is how it should go:
 1. Start your RPi with the GrovePi board plugged in.
 2. Make sure the _Light Sensor_ and _Ultrasonic Ranger_ are correctly connected in the right ports.
 3. Log in to the RPi, navigate to your projects folder and start the NodeJS process
+
   ```bash
   pi@raspberrypi3:~/projects/grovepi $ node grovepi_iotcs.js ProximitySensor.json LightSensor.json
   info IOTCS Initializing IoTCS devices
