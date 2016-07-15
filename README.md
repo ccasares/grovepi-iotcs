@@ -602,6 +602,13 @@ Once everything is imported and checked, just  `Activate` the integration.
 
   ![activate_integration](screenshots/activate_integration.png)
 
+#### Obtain the REST service URL
+After the activation, get the service URL by clicking the `i` (Info) icon:
+
+  ![service url](screenshots/service url.png)
+
+Take note of the URL. We will be using it shortly.
+
 ### Oracle IoTCS setup (Server side) (3)
 #### Create and setup your application (2)
 ##### Create the enterprise application integration
