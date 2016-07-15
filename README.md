@@ -566,7 +566,7 @@ Feel free to model your own complex process and leverage other PaaS services!
   ![pcs_wsdl](screenshots/pcs_wsdl.png)
 
 > The URL has the following format:
-> `https://pcs-gse00000216.process.us2.oraclecloud.com/soa-infra/services/default/IoTCS_Incident`**`!1.0*soa_dda7800a-702d-482d-a3d2-2050ca4eb3a4`**`/ReviewIncident.service?WSDL`
+> `https://xxxxxxxxxxx.process.us2.oraclecloud.com/soa-infra/services/default/IoTCS_Incident`**`!1.0*soa_dda7800a-702d-482d-a3d2-2050ca4eb3a4`**`/ReviewIncident.service?WSDL`
 > You better safely remove the **highlighted** data when using the URL later. That way, should you re-deploy de process, the URL will still be valid.
 
 2. A new PCS Role should have been created. You need to add yourself as a member:
@@ -607,9 +607,22 @@ After the activation, get the service URL by clicking the `i` (Info) icon:
 
   ![service url](screenshots/service url.png)
 
-Take note of the URL. We will be using it shortly.
+Take note of the Endpoint URL. We will be using it shortly.
 
 ### Oracle IoTCS setup (Server side) (3)
 #### Create and setup your application (2)
+Last step in all this process is to connect IoTCS with our brand new ICS service, which in turn will invoke and trigger the PCS process.
+
 ##### Create the enterprise application integration
+Login to your IoTCS instance and open your Application. Click the `Integration` icon on the left. Click the `+` button to add a new integration and select `Enterprise Application` type. Set a name and use the just obtained REST service URL as the `URL` setting. Click `Create` button.
+
+Once created, select it and click the _pencil_ button to set the final settings.
+
+* Go to the `Connection` tab, check the `Enable authentication for this URL` setting and type in the credentials used in the ICS `CC_EventFrom_IoTCS` connection (see [here](#cc_pcs_incident_management)).
+* Go to `Streams` tab and select the `ExplorationRemoveDups` message format.
+
+Click `Save` and you're done!!!
+
+Ready to run the whole tutorial end2end!
+
 ### Run the sample end2end!
