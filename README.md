@@ -561,13 +561,15 @@ The task is assigned to the `Incident Manager` role. So we will need to add ours
 Feel free to model your own complex process and leverage other PaaS services!
 
 #### Deploy and post-deployment tasks
-Once you deploy the application, obtain the WSDL URL which will be used shortly. In PCS Composer click `Management`, locate your process and click the _hamburger_ icon and `Web Services` menu
+1. Once you deploy the application, obtain the WSDL URL which will be used shortly. In PCS Composer click `Management`, locate your process and click the _hamburger_ icon and `Web Services` menu
 
   ![pcs_wsdl](screenshots/pcs_wsdl.png)
 
-> The URL has the following format: `https://pcs-gse00000216.process.us2.oraclecloud.com/soa-infra/services/default/IoTCS_Incident`**`!1.0*soa_dda7800a-702d-482d-a3d2-2050ca4eb3a4`**`/ReviewIncident.service?WSDL`
+> The URL has the following format:
+> `https://pcs-gse00000216.process.us2.oraclecloud.com/soa-infra/services/default/IoTCS_Incident`**`!1.0*soa_dda7800a-702d-482d-a3d2-2050ca4eb3a4`**`/ReviewIncident.service?WSDL`
+> You better safely remove the **highlighted** data when using the URL later. That way, should you re-deploy de process, the URL will still be valid.
 
-A new PCS Role should have been created. You need to add yourself as a member:
+2. A new PCS Role should have been created. You need to add yourself as a member:
 
   ![roles](screenshots/roles.png)
 
@@ -582,13 +584,23 @@ You will need to purchase an instance of Oracle Integration Cloud Service (PCS) 
 Go to your ICS environment and import the <a href="assets/CC_LAUNCH_IOTCS_INCIDE_MANAGE_01.00.0000.iar">CC_LAUNCH_IOTCS_INCIDE_MANAGE_01.00.0000.iar</a> file.
 
 #### Quick review of the integration
-I'm using an _Orchestration_ with a REST service as the input (`CC_EventFrom_IoTCS`) and a SOAP call as the outbound invocation (`CC_PCS_Incident_Management`)
+I'm using an _Orchestration_ (`CC_Launch_IoTCS_Incident_Manager`) with a REST service as the input (`CC_EventFrom_IoTCS`) and a SOAP call as the outbound invocation (`CC_PCS_Incident_Management`)
 
 ##### `CC_EventFrom_IoTCS`
 Basic authentication is enabled using my credentials. Make sure you change it with yours :grin:
 
 ##### `CC_PCS_Incident_Management`
-WSDL URL and credentials are also from my environment. Once you deployed your PCS app, retrieve your WSDL and update this endpoint accordingly.
+WSDL URL and credentials are also from my environment. Update the WSDL and credentials accordingly.
+
+##### `CC_Launch_IoTCS_Incident_Manager`
+The orchestration simply take the incoming invocation, maps it to the SOAP parameters, performs the synchronous call and returns a dummy response (IoTCS doesn't really check such response). Feel free to review it with more detail.
+
+  ![ics_flow](screenshots/ics_flow.png)
+
+#### Activate the integration
+Once everything is imported and checked, just  `Activate` the integration.
+
+  ![activate_integration](screenshots/activate_integration.png)
 
 ### Oracle IoTCS setup (Server side) (3)
 #### Create and setup your application (2)
