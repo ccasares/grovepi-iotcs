@@ -623,6 +623,48 @@ Once created, select it and click the _pencil_ button to set the final settings.
 
 Click `Save` and you're done!!!
 
+### Run the sample end2end!
+
 Ready to run the whole tutorial end2end!
 
-### Run the sample end2end!
+If everything works, this is how it should go:
+
+1. Start your RPi with the GrovePi board plugged in.
+2. Make sure the _Light Sensor_ and _Ultrasonic Ranger_ are correctly connected in the right ports.
+3. Log in to the RPi, navigate to your projects folder and start the NodeJS process
+  ```bash
+  pi@raspberrypi3:~/projects/grovepi $ node grovepi_iotcs.js ProximitySensor.json LightSensor.json
+  info IOTCS Initializing IoTCS devices
+  verb IOTCS Initializing IoT device 'Proximity Sensor'
+  verb IOTCS 'Proximity Sensor' device is already activated
+  verb IOTCS 'Proximity Sensor' intialized successfully
+  verb IOTCS Initializing IoT device 'Light Sensor'
+  verb IOTCS 'Light Sensor' device is already activated
+  verb IOTCS 'Light Sensor' intialized successfully
+  info GROVEPI Initializing GrovePi devices
+  verb GROVEPI Starting Board setup
+  info GrovePi.board GrovePi is initing
+  verb GROVEPI GrovePi Version :: 1.2.2
+  verb GROVEPI Ultrasonic Ranger Digital Sensor (start watch)
+  verb GROVEPI Light Analog Sensor (start watch)
+  info GROVEPI GrovePi devices initialized successfully
+  info PROCESS Initialization completed
+```
+4. Go to the IoTCS console, go to your Application and click on the `Messages` tab. Check the `Auto Refresh Interval` option.
+5. Go to the PCS Workspace console and open the Task Inbox window
+6. Cover the Light Sensor with some opaque material, and put something closer to 10 centimeters over the Ultrasonic Ranger. Keep this during a couple of seconds.
+7. In the IoTCS console you should see one (just one) message coming from the `ExplorationRemoveDups` exploration that should have been published to ICS
+
+  ![integration_message](screenshots/integration_message.png)
+
+8. Go to PCS Workspace and refresh the inbox. One new task should come up
+
+  ![task](screenshots/task.png)
+
+
+9. Click on it to see its WebForm with all the data coming from IoTCS
+
+  ![task_details](screenshots/task_details.png)
+
+
+Et voilá!
