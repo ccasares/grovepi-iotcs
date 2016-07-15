@@ -623,9 +623,9 @@ Once created, select it and click the _pencil_ button to set the final settings.
 
 Click `Save` and you're done!!!
 
-### Run the sample end2end!
-
 Ready to run the whole tutorial end2end!
+
+### Run the sample end2end!
 
 If everything works, this is how it should go:
 
@@ -658,14 +658,12 @@ If everything works, this is how it should go:
 
   ![integration_message](screenshots/integration_message.png)
 
-8. Go to PCS Workspace and refresh the inbox. One new task should come up
+8. Go to PCS Workspace and refresh the inbox. One new task should come up (which also means that ICS did its job!)
 
   ![task](screenshots/task.png)
-
 
 9. Click on it to see its WebForm with all the data coming from IoTCS
 
   ![task_details](screenshots/task_details.png)
-
 
 Et voilá!
