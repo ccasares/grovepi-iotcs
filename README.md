@@ -561,7 +561,13 @@ The task is assigned to the `Incident Manager` role. So we will need to add ours
 Feel free to model your own complex process and leverage other PaaS services!
 
 #### Deploy and post-deployment tasks
-Once you deploy the application, a new PCS Role should have been created. You need to add yourself as a member:
+Once you deploy the application, obtain the WSDL URL which will be used shortly. In PCS Composer click `Management`, locate your process and click the _hamburger_ icon and `Web Services` menu
+
+  ![pcs_wsdl](screenshots/pcs_wsdl.png)
+
+> The URL has the following format: `https://pcs-gse00000216.process.us2.oraclecloud.com/soa-infra/services/default/IoTCS_Incident`**`!1.0*soa_dda7800a-702d-482d-a3d2-2050ca4eb3a4`**`/ReviewIncident.service?WSDL`
+
+A new PCS Role should have been created. You need to add yourself as a member:
 
   ![roles](screenshots/roles.png)
 
@@ -572,7 +578,17 @@ We have just finished our development for IoTCS and for PCS. However we still ne
 
 #### Get your Instance
 You will need to purchase an instance of Oracle Integration Cloud Service (PCS) or request a trial account. I have been using a shared instance used by many Sales Consultants in Oracle around the world. Visit https://cloud.oracle.com/integration to get more info.
-#### Create your integration
+#### Import integration
+Go to your ICS environment and import the <a href="assets/CC_LAUNCH_IOTCS_INCIDE_MANAGE_01.00.0000.iar">CC_LAUNCH_IOTCS_INCIDE_MANAGE_01.00.0000.iar</a> file.
+
+#### Quick review of the integration
+I'm using an _Orchestration_ with a REST service as the input (`CC_EventFrom_IoTCS`) and a SOAP call as the outbound invocation (`CC_PCS_Incident_Management`)
+
+##### `CC_EventFrom_IoTCS`
+Basic authentication is enabled using my credentials. Make sure you change it with yours :grin:
+
+##### `CC_PCS_Incident_Management`
+WSDL URL and credentials are also from my environment. Once you deployed your PCS app, retrieve your WSDL and update this endpoint accordingly.
 
 ### Oracle IoTCS setup (Server side) (3)
 #### Create and setup your application (2)
