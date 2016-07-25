@@ -13,13 +13,16 @@ dcl = dcl({debug: false});
 var storePassword = 'welcome1';
 var proximity = new Device('Proximity Sensor');
 var light = new Device('Light Sensor');
-var devices = [ proximity, light ];
+var motion = new Device('Motion Sensor');
+var devices = [ proximity, light, motion ];
 
 // Init Devices
 proximity.setStoreFile(process.argv[2], storePassword);
 proximity.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity');
 light.setStoreFile(process.argv[3], storePassword);
 light.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:light');
+motion.setStoreFile(process.argv[4], storePassword);
+motion.setUrn('urn:com:oracle:ccasares:iot:device:grovepi:sensors:motion');
 
 // GrovePi stuff
 var board = undefined;
