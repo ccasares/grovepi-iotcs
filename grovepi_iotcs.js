@@ -127,6 +127,7 @@ async.series( {
         if (res) {
           var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
           var lightSensor = new GrovePi.sensors.LightAnalog(2);
+          var motionSensor = GrovePi.sensors.DigitalInput(8);
           log.verbose(GROVEPI, 'GrovePi Version :: ' + board.version());
           // Ultrasonic Ranger
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
@@ -148,6 +149,13 @@ async.series( {
             }
           })
           lightSensor.watch();
+          // Motion Sensor
+          log.verbose(GROVEPI, 'Motion Digital Sensor (start watch)');
+          motionSensor.on('change', function(res) {
+            motion.getIotVd().update({ motion_detected: (res === '1')});
+          });
+          motionSensor.watch();
+
           log.info(GROVEPI, "GrovePi devices initialized successfully");
         } else {
           log.error(GROVEPI, 'TEST CANNOT START')
