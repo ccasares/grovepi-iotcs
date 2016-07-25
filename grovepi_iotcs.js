@@ -127,7 +127,7 @@ async.series( {
         if (res) {
           var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
           var lightSensor = new GrovePi.sensors.LightAnalog(2);
-          var motionSensor = GrovePi.sensors.DigitalInput(8);
+          var motionSensor = new GrovePi.sensors.DigitalInput(8);
           log.verbose(GROVEPI, 'GrovePi Version :: ' + board.version());
           // Ultrasonic Ranger
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
