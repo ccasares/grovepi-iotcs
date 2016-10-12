@@ -185,7 +185,6 @@ async.series( {
             }
           });
           motionSensor.watch();
-
           log.info(GROVEPI, "GrovePi devices initialized successfully");
         } else {
           log.error(GROVEPI, 'TEST CANNOT START')
