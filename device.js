@@ -1,10 +1,13 @@
 var method = Device.prototype;
 
+var _ = require('lodash');
+
 function Device(name) {
   // Initialize device (sub)structures
   this._device = {};
   this._device.iotcs = {};
   this._device.name = name;
+  this._device.virtualdevices = [];
 }
 
 method.setStoreFile = function(storeFile, passphrase) {
@@ -24,8 +27,8 @@ method.setIotModel = function(model) {
   this._device.iotcs.model = model;
 }
 
-method.setIotVd = function(vd) {
-  this._device.iotcs.vd = vd;
+method.setIotVd = function(urn, model, vd) {
+  this._device.virtualdevices.push({ urn: urn, model: model, device: vd });
 }
 
 method.toString = function() {
@@ -52,8 +55,9 @@ method.getIotDcd = function() {
   return this._device.iotcs.dcd;
 }
 
-method.getIotVd = function() {
-  return this._device.iotcs.vd;
+method.getIotVd = function(urn) {
+  var vd = _.find(this._device.virtualdevices, { urn: urn });
+  if (vd) return vd.device; else return undefined;
 }
 
 module.exports = Device;
