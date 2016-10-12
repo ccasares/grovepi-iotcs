@@ -9,7 +9,7 @@ var GrovePi = require('node-grovepi').GrovePi
 ;
 
 // IoTCS stuff
-const GROVEPI = "GrovePi+";
+const GROVEPIDEV = "GrovePi+";
 dcl = dcl({debug: false});
 var storePassword = 'Welcome1';
 const LIGHTSENSOR     = "urn:com:oracle:ccasares:iot:device:grovepi:sensors:light";
@@ -22,7 +22,7 @@ var urn = [
    , PROXIMITYSENSOR
    , SOUNDSENSOR
 ];
-var grovepi = new Device(GROVEPI);
+var grovepi = new Device(GROVEPIDEV);
 const storeFile = process.argv[2];
 var devices = [ grovepi ];
 
