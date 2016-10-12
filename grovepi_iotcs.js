@@ -148,7 +148,7 @@ async.series( {
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
           ultrasonicSensor.on('change', function(res) {
             if (typeof res === 'number') {
-              var vd = car.getIotVd(PROXIMITYSENSOR);
+              var vd = grovepi.getIotVd(PROXIMITYSENSOR);
               if (vd) {
                 vd.update({ distance: res});
               } else {
@@ -163,7 +163,7 @@ async.series( {
           log.verbose(GROVEPI, 'Light Analog Sensor (start watch)')
           lightSensor.on('change', function(res) {
             if (typeof res === 'number') {
-              var vd = car.getIotVd(LIGHTSENSOR);
+              var vd = grovepi.getIotVd(LIGHTSENSOR);
               if (vd) {
                 vd.update({ intensity: res});
               } else {
@@ -177,7 +177,7 @@ async.series( {
           // Motion Sensor
           log.verbose(GROVEPI, 'Motion Digital Sensor (start watch)');
           motionSensor.on('change', function(res) {
-            var vd = car.getIotVd(MOTIONSENSOR);
+            var vd = grovepi.getIotVd(MOTIONSENSOR);
             if (vd) {
               vd.update({ motion_detected: (res === '1')});
             } else {
