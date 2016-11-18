@@ -148,6 +148,7 @@ async.series( {
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
           ultrasonicSensor.on('change', function(res) {
             if (typeof res === 'number') {
+              log.verbose(GROVEPI,"Distance: " + res);
               var vd = grovepi.getIotVd(PROXIMITYSENSOR);
               if (vd) {
                 vd.update({ distance: res});
