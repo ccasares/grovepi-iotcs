@@ -12,6 +12,7 @@ var GrovePi = require('node-grovepi').GrovePi
 const GROVEPIDEV = "GrovePi+";
 dcl = dcl({debug: false});
 var storePassword = 'Welcome1';
+const DHTSENSOR       = "";
 const LIGHTSENSOR     = "urn:com:oracle:ccasares:iot:device:grovepi:sensors:light";
 const MOTIONSENSOR    = "urn:com:oracle:ccasares:iot:device:grovepi:sensors:motion";
 const PROXIMITYSENSOR = "urn:com:oracle:ccasares:iot:device:grovepi:sensors:proximity";
@@ -21,6 +22,7 @@ var urn = [
    , MOTIONSENSOR
    , PROXIMITYSENSOR
    , SOUNDSENSOR
+   , DHTSENSOR
 ];
 var grovepi = new Device(GROVEPIDEV);
 const storeFile = process.argv[2];
@@ -140,10 +142,34 @@ async.series( {
       },
       onInit: function(res) {
         if (res) {
+          var dhtSensor = new GrovePi.sensors.DHTDigital(3, GrovePi.sensors.DHTDigital.VERSION.DHT11, GrovePi.sensors.DHTDigital.CELSIUS)
           var ultrasonicSensor = new GrovePi.sensors.UltrasonicDigital(4);
           var lightSensor = new GrovePi.sensors.LightAnalog(2);
           var motionSensor = new GrovePi.sensors.DigitalInput(8);
           log.verbose(GROVEPI, 'GrovePi Version :: ' + board.version());
+          // DHT Sensor
+          log.info(GROVEPI, 'DHT Digital Sensor (start watch)');
+          dhtSensor.on('change', function(res) {
+            if ( res.length == 3) {
+              lastData = { temperature: res[0], humidity: res[1] };
+            } else {
+              log.warn(GROVEPI, "DHT Digital Sensor: Invalid value read: " + res);
+            }
+          })
+          dhtSensor.watch(500) // milliseconds
+          timer = setInterval(() => {
+            if ( !lastData) {
+              return;
+            }
+            var data = { temperature: lastData.temperature, humidity: lastData.humidity };
+            log.verbose(GROVEPI, 'DHT onChange value = ' + JSON.stringify(data));
+            var vd = grovepi.getIotVd(DHTSENSOR);
+            if (vd) {
+              vd.update(data);
+            } else {
+              log.error(IOTCS, "URN not registered: " + DHTSENSOR);
+            }
+          }, 1000);
           // Ultrasonic Ranger
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
           ultrasonicSensor.on('change', function(res) {
@@ -160,6 +186,7 @@ async.series( {
             }
           })
           ultrasonicSensor.watch();
+          /**
           // Light Sensor
           log.verbose(GROVEPI, 'Light Analog Sensor (start watch)')
           lightSensor.on('change', function(res) {
@@ -186,6 +213,7 @@ async.series( {
             }
           });
           motionSensor.watch();
+          **/
           log.info(GROVEPI, "GrovePi devices initialized successfully");
         } else {
           log.error(GROVEPI, 'TEST CANNOT START')
