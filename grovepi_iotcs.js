@@ -170,7 +170,7 @@ async.series( {
               log.error(IOTCS, "URN not registered: " + DHTSENSOR);
             }
           }, 1000);
-          // Ultrasonic Ranger
+          // Ultrasonic Rangerx
           log.verbose(GROVEPI, 'Ultrasonic Ranger Digital Sensor (start watch)');
           ultrasonicSensor.on('change', function(res) {
             if (typeof res === 'number') {
