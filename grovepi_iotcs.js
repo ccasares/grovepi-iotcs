@@ -34,6 +34,8 @@ grovepi.setUrn(urn);
 
 // GrovePi stuff
 var board = undefined;
+var lastData = undefined;
+var timer    = undefined;
 
 // Misc
 const PROCESS = 'PROCESS';
